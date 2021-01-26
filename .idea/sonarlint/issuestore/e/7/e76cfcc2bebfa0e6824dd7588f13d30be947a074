@@ -1,0 +1,14 @@
+
+w
+java:S3305Ÿ"[Inject this field value directly into "freeMarkerConfigurer", the only method that uses it.(êÌ¦úÿÿÿÿ
+W	java:S125š"<This block of commented-out lines of code should be removed.(î«Úıÿÿÿÿ
+
+java:S1488à"kImmediately return this expression instead of assigning it to the temporary variable "fixedLocaleResolver".(ÅË¬X
+q	java:S116f"WRename this field "update_delay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œœæŒşÿÿÿÿ
+o
+java:S2293Ÿ"YReplace the type specification in this constructor call with the diamond operator ("<>").(»¹
+W	java:S125"<This block of commented-out lines of code should be removed.(ªÄ¤İÿÿÿÿÿ
+Q	java:S125ª"<This block of commented-out lines of code should be removed.(œüU
+W	java:S125’"<This block of commented-out lines of code should be removed.(®¥®Ôıÿÿÿÿ
+R	java:S125³"<This block of commented-out lines of code should be removed.(¾Îè
+{	java:S116œ"`Rename this field "background_image_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•ŠÃœıÿÿÿÿ

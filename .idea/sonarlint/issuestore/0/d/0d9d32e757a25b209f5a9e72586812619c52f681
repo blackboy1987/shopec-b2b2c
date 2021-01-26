@@ -1,0 +1,9 @@
+
+–
+java:S1192J"{Define a constant instead of duplicating this literal "[Assertion failed] - type is required; it must not be null" 3 times.(­ª¥êıÿÿÿÿ
+ª
+java:S4449y"“Annotate the parameter with @javax.annotation.Nullable in method 'resolveLocale' declaration, or make sure that null can not be passed as argument.(ìÁ’–
+Q
+java:S2696)"6Make the enclosing method "static" or remove this set.(ª—ÿêÿÿÿÿÿ
+M
+java:S2696‚"6Make the enclosing method "static" or remove this set.(ü·…

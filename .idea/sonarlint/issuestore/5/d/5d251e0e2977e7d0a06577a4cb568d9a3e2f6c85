@@ -1,0 +1,16 @@
+
+t
+java:S2293b"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ô’æ¢üÿÿÿÿ
+a
+java:S1192Ù"JDefine a constant instead of duplicating this literal "/order/**" 3 times.(ŞñÏ
+f
+java:S3305L"PInject this field value directly into "validator", the only method that uses it.(ËÈôÉ
+`
+java:S1192Ù"IDefine a constant instead of duplicating this literal "/cart/**" 3 times.(ŞñÏ
+d
+java:S1192Ù"MDefine a constant instead of duplicating this literal "/business/**" 5 times.(ŞñÏ
+V
+java:S1161Õ":Add the "@Override" annotation above this method signature(ŠĞ©ãıÿÿÿÿ
+V	java:S125t"<This block of commented-out lines of code should be removed.(¬„’üÿÿÿÿ
+a
+java:S1192Ù"JDefine a constant instead of duplicating this literal "/admin/**" 5 times.(ŞñÏ

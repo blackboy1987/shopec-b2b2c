@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.shopec.dao.CouponDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.shopec.entity.Coupon">
+	    <result column="id" property="id" />
+	    <result column="version" property="version" />
+        <result column="created_date" property="createdDate" />
+        <result column="last_modified_date" property="lastModifiedDate" />
+        <result column="begin_date" property="beginDate" />
+        <result column="end_date" property="endDate" />
+        <result column="introduction" property="introduction" />
+        <result column="is_enabled" property="isEnabled" />
+        <result column="is_exchange" property="isExchange" />
+        <result column="maximum_price" property="maximumPrice" />
+        <result column="maximum_quantity" property="maximumQuantity" />
+        <result column="minimum_price" property="minimumPrice" />
+        <result column="minimum_quantity" property="minimumQuantity" />
+        <result column="name" property="name" />
+        <result column="point" property="point" />
+        <result column="prefix" property="prefix" />
+        <result column="price_expression" property="priceExpression" />
+        <association property="store" select="net.shopec.dao.StoreDao.find" column="store_id" javaType="net.shopec.entity.Store" fetchType="lazy"/>
+        <collection property="couponCodes" select="net.shopec.dao.CouponCodeDao.findSet" column="{attributeName=coupon_id, attributeValue=id}" ofType="net.shopec.entity.CouponCode" fetchType="lazy"/>
+        <collection property="orders" select="net.shopec.dao.OrderDao.findSet" column="{attributeName=coupon_id, attributeValue=id}" ofType="net.shopec.entity.Order" fetchType="lazy"/>
+        <!-- <collection property="couponAttributes" select="net.shopec.dao.CouponAttributeDao.findSet" column="{attributeName=coupon_id, attributeValue=id}" ofType="net.shopec.entity.CouponAttribute" fetchType="lazy"/> -->
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        coupon.id,
+        coupon.version,
+        coupon.created_date, coupon.last_modified_date, coupon.begin_date, coupon.end_date, coupon.introduction, coupon.is_enabled, coupon.is_exchange, coupon.maximum_price, coupon.maximum_quantity, coupon.minimum_price, coupon.minimum_quantity, coupon.name, coupon.point, coupon.prefix, coupon.price_expression, store_id, 'coupon_id'
+    </sql>
+	
+	<!-- 查找实体对象 -->
+	<select id="find" parameterType="java.lang.Long" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"></include>
+		FROM
+			`coupon` coupon
+		WHERE
+			`id` = #{id}
+	</select>
+	
+	<!-- 查找实体对象集合 -->
+	<select id="findSet" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"></include>
+		FROM
+			`coupon` coupon
+		<choose>
+			<when test="attributeName == 'orders'">
+				LEFT JOIN `orders_coupon` ON id = coupons_id
+				WHERE
+					orders_id = #{attributeValue}
+			</when>
+			<when test="attributeName == 'promotion_default_attribute_id'">
+				LEFT JOIN `coupon_attribute_coupon` ON id = coupons_id
+				WHERE
+					coupon_attributes_id = #{attributeValue}
+			</when>
+			<otherwise>
+				WHERE
+					${attributeName} = #{attributeValue}
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!-- 查找优惠券 -->
+	<select id="findList" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"></include>
+		FROM
+			coupon coupon
+		<where>
+			<if test="store != null">
+				AND store_id = #{store.id}
+			</if>
+			<if test="isEnabled != null">
+				AND coupon.is_enabled = #{isEnabled}
+			</if>
+			<if test="isExchange != null">
+				AND is_exchange = #{isExchange}
+			</if>
+			<if test="hasExpired != null">
+				<if test="hasExpired == true">
+					 AND coupon.end_date IS NOT NULL AND coupon.end_date <![CDATA[ <= ]]> NOW()
+				</if>
+				<if test="hasExpired == false">
+					AND (coupon.end_date IS NULL OR coupon.end_date <![CDATA[ > ]]> NOW())
+				</if>
+			</if>
+		</where>
+	</select>
+	
+	<!-- 查找优惠券 -->
+	<select id="selectList" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"></include>
+		FROM
+			coupon coupon
+		<where>
+			<if test="store != null">
+				AND store_id = #{store.id}
+			</if>
+			<if test="matchs != null and matchs.size > 0 ">
+				AND id NOT IN
+				<foreach collection="matchs" item="match" open="(" separator="," close=")" >
+		        	#{matchs.id}
+		        </foreach>
+			</if>
+		</where>
+	</select>
+	
+	<!-- 查找实体对象分页 -->
+	<select id="selectPage" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"></include>
+		FROM
+			`coupon` coupon
+		LEFT JOIN `store` store ON coupon.`store_id` = store.`id`
+		<if test="ew.nonEmptyOfWhere == true">
+			WHERE
+		</if>
+		${ew.sqlSegment}
+	</select>
+	
+	<!-- 查找优惠码分页 -->
+	<select id="findPageStore" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"></include>
+		FROM
+			`coupon` coupon
+		LEFT JOIN `store` store ON coupon.`store_id` = store.`id`
+		<where>
+			<if test="store != null">
+				AND store_id = #{store.id}
+			</if>
+			<if test="ew.nonEmptyOfWhere == true">
+				AND
+			</if>
+			${ew.sqlSegment}
+		</where>
+	</select>
+	
+	<!-- 查找优惠码分页 -->
+	<select id="findPage" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"></include>
+		FROM
+			`coupon` coupon
+		LEFT JOIN `store` store ON coupon.`store_id` = store.`id`
+		<where>
+			<if test="isEnabled != null">
+				AND coupon.is_enabled = #{isEnabled}
+			</if>
+			<if test="isExchange != null">
+				AND coupon.is_exchange = #{isExchange}
+			</if>
+			<if test="hasExpired != null">
+				<if test="hasExpired == true">
+					 AND coupon.end_date IS NOT NULL AND coupon.end_date <![CDATA[ <= ]]> NOW()
+				</if>
+				<if test="hasExpired == false">
+					AND (coupon.end_date IS NULL OR coupon.end_date <![CDATA[ > ]]> NOW())
+				</if>
+			</if>
+		</where>
+	</select>
+	
+	<!-- 保存 -->
+	<insert id="save" parameterType="net.shopec.entity.Coupon">
+   		INSERT INTO coupon(
+			id ,
+			created_date ,
+			version ,
+			begin_date ,
+			end_date ,
+			is_enabled ,
+			is_exchange ,
+			maximum_price ,
+			maximum_quantity ,
+			minimum_price ,
+			minimum_quantity ,
+			`name` ,
+			point ,
+			`prefix` ,
+			price_expression ,
+			store_id ,
+			introduction
+		) VALUES (
+			#{entity.id}, 
+			#{entity.createdDate}, 
+			#{entity.version}, 
+			#{entity.beginDate}, 
+			#{entity.endDate}, 
+			#{entity.isEnabled}, 
+			#{entity.isExchange}, 
+			#{entity.maximumPrice}, 
+			#{entity.maximumQuantity}, 
+			#{entity.minimumPrice}, 
+			#{entity.minimumQuantity}, 
+			#{entity.name}, 
+			#{entity.point}, 
+			#{entity.prefix}, 
+			#{entity.priceExpression}, 
+			#{entity.store.id}, 
+			#{entity.introduction}
+		)
+  	</insert>
+	
+	<!-- 更新 -->
+	<update id="update" parameterType="net.shopec.entity.Coupon">
+    	UPDATE coupon
+		SET last_modified_date = #{entity.lastModifiedDate},
+			version = #{entity.version} + 1,
+			begin_date = #{entity.beginDate},
+			end_date = #{entity.endDate},
+			is_enabled = #{entity.isEnabled},
+			is_exchange = #{entity.isExchange},
+			maximum_price = #{entity.maximumPrice},
+			maximum_quantity = #{entity.maximumQuantity},
+			minimum_price = #{entity.minimumPrice},
+			minimum_quantity = #{entity.minimumQuantity},
+			`name` = #{entity.name},
+			point = #{entity.point},
+			`prefix` = #{entity.prefix},
+			price_expression = #{entity.priceExpression},
+			store_id = #{entity.store.id},
+			introduction = #{entity.introduction}
+		WHERE
+			id = #{entity.id}
+		AND version = #{entity.version}
+  	</update>
+  
+</mapper>

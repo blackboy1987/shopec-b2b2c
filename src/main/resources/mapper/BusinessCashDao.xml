@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.shopec.dao.BusinessCashDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.shopec.entity.BusinessCash">
+	    <result column="id" property="id" />
+	    <result column="version" property="version" />
+        <result column="created_date" property="createdDate" />
+        <result column="last_modified_date" property="lastModifiedDate" />
+        <result column="account" property="account" />
+        <result column="amount" property="amount" />
+        <result column="bank" property="bank" />
+        <result column="status" property="status" />
+        <association property="business" select="net.shopec.dao.BusinessDao.find" column="business_id" javaType="net.shopec.entity.Business" fetchType="lazy"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        businessCash.id,
+        businessCash.version,
+        businessCash.created_date, businessCash.last_modified_date, businessCash.account, businessCash.amount, businessCash.bank, businessCash.status, businessCash.business_id
+    </sql>
+	
+	<!-- 查找实体对象 -->
+	<select id="find" parameterType="java.lang.Long" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"></include>
+		FROM
+			`business_cash` businessCash
+		WHERE
+			`id` = #{id}
+	</select>
+	
+	<!-- 查找实体对象集合 -->
+	<select id="findSet" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"></include>
+		FROM
+			`business_cash` businessCash
+		WHERE
+			${attributeName} = #{attributeValue}
+	</select>
+	
+	<!-- 查找商家提现数量 -->
+	<select id="count" resultType="long">
+		SELECT
+			count(1)
+		FROM
+			`business_cash` businessCash
+		<where>
+		  	<if test="status != null">
+		  		AND `status` = #{status.ordinal}
+		  	</if>
+		  	<if test="bank != null">
+		  		AND `bank` = #{bank}
+		  	</if>
+		  	<if test="account != null">
+		  		AND account = #{account}
+		  	</if>
+		  	<if test="business != null">
+		  		AND business_id = #{business.id}
+		  	</if>
+		</where>
+	</select>
+	
+	<!-- 查找商家提现记录分页 -->
+	<select id="findPage" resultMap="BaseResultMap">
+		SELECT
+			<include refid="Base_Column_List"></include>
+		FROM
+			`business_cash` businessCash
+		LEFT JOIN `users` business ON businessCash.`business_id` = business.`id`
+		WHERE
+			`dtype` = 'Business'
+		<if test="status != null">
+	  		AND `status` = #{status.ordinal}
+	  	</if>
+	  	<if test="bank != null">
+	  		AND `bank` = #{bank}
+	  	</if>
+	  	<if test="account != null">
+	  		AND account = #{account}
+	  	</if>
+	  	<if test="business != null">
+	  		AND business_id = #{business.id}
+	  	</if>
+	  	<if test="ew.nonEmptyOfWhere == true">
+			AND
+		</if>
+		${ew.sqlSegment}
+	</select>
+	
+	<!-- 保存 -->
+	<insert id="save" parameterType="net.shopec.entity.BusinessCash">
+    	INSERT INTO business_cash(
+			id ,
+			created_date ,
+			version ,
+			account ,
+			amount ,
+			bank ,
+			`status` ,
+			business_id
+		) VALUES (
+			#{entity.id}, 
+			#{entity.createdDate}, 
+			#{entity.version}, 
+			#{entity.account}, 
+			#{entity.amount}, 
+			#{entity.bank}, 
+			#{entity.status}, 
+			#{entity.business.id}
+		)
+  	</insert>
+	
+	<!-- 更新 -->
+	<update id="update" parameterType="net.shopec.entity.BusinessCash">
+   		UPDATE business_cash
+		SET last_modified_date = #{entity.lastModifiedDate},
+			version = #{entity.version} + 1,
+			account = #{entity.account},
+			amount = #{entity.amount},
+			bank = #{entity.bank},
+			`status` = #{entity.status},
+			business_id = #{entity.business.id}
+		WHERE
+			id = #{entity.id}
+		AND version = #{entity.version}
+  	</update>
+  
+</mapper>

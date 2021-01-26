@@ -1,0 +1,22 @@
+
+o	java:S1161"ZRename this field "admin_login_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í³ü
+p	java:S116""[Rename this field "unauthorized_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ¤ôÈ
+c
+java:S1192T"NDefine a constant instead of duplicating this literal "businessAuthc" 3 times.(ÒÒ»m
+y	java:S116."eRename this field "business_login_success_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—Î¼
+x	java:S116("cRename this field "member_login_success_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô§¹¤
+v	java:S1164"bRename this field "admin_login_success_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ ú
+o
+java:S2293C"YReplace the type specification in this constructor call with the diamond operator ("<>").(¡Î Ù
+n
+java:S33057"XInject this field value directly into "shiroCacheManager", the only method that uses it.(‹‰÷ò
+b
+java:S1192G"GDefine a constant instead of duplicating this literal "logout" 4 times.(—üæ‚ûÿÿÿÿ
+p	java:S116%"[Rename this field "member_login_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘Ñº–
+r	java:S116+"]Rename this field "business_login_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÃÅ‘
+o
+java:S2293Ğ"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŒîÌ/
+p
+java:S1192I"ZDefine a constant instead of duplicating this literal "memberAuthc,perms[member]" 6 times.(—äŒ™
+a
+java:S1192"KDefine a constant instead of duplicating this literal "adminAuthc" 3 times.(­¢b

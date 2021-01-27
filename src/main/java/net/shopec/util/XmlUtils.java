@@ -95,7 +95,7 @@ public final class XmlUtils {
 	 *            类型
 	 * @return 对象
 	 */
-	public static <T> T toObject(String xml, TypeReference<?> typeReference) {
+	public static <T> T toObject(String xml, TypeReference<T> typeReference) {
 		Assert.hasText(xml, "[Assertion failed] - xml must have text; it must not be null, empty, or blank");
 		Assert.notNull(typeReference, "[Assertion failed] - typeReference is required; it must not be null");
 
@@ -147,8 +147,6 @@ public final class XmlUtils {
 		try {
 			return XML_MAPPER.readTree(xml);
 		} catch (JsonProcessingException e) {
-			throw new RuntimeException(e.getMessage(), e);
-		} catch (IOException e) {
 			throw new RuntimeException(e.getMessage(), e);
 		}
 	}

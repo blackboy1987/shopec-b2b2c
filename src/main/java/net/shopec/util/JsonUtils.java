@@ -83,7 +83,7 @@ public final class JsonUtils {
 	 *            类型
 	 * @return 对象
 	 */
-	public static <T> T toObject(String json, TypeReference<?> typeReference) {
+	public static <T> T toObject(String json, TypeReference<T> typeReference) {
 		Assert.hasText(json, "[Assertion failed] - json must have text; it must not be null, empty, or blank");
 		Assert.notNull(typeReference, "[Assertion failed] - typeReference is required; it must not be null");
 
@@ -136,8 +136,6 @@ public final class JsonUtils {
 			return OBJECT_MAPPER.readTree(json);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e.getMessage(), e);
-		} catch (IOException e) {
-			throw new RuntimeException(e.getMessage(), e);
 		}
 	}
 
@@ -155,10 +153,6 @@ public final class JsonUtils {
 
 		try {
 			OBJECT_MAPPER.writeValue(writer, value);
-		} catch (JsonGenerationException e) {
-			throw new RuntimeException(e.getMessage(), e);
-		} catch (JsonMappingException e) {
-			throw new RuntimeException(e.getMessage(), e);
 		} catch (IOException e) {
 			throw new RuntimeException(e.getMessage(), e);
 		}

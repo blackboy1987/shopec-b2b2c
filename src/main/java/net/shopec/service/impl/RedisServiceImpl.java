@@ -1,5 +1,6 @@
 package net.shopec.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -54,7 +55,7 @@ public class RedisServiceImpl implements RedisService {
 			if (key.length == 1) {
 				redisTemplate.delete(key[0]);
 			} else {
-				redisTemplate.delete(CollectionUtils.arrayToList(key));
+				redisTemplate.delete(Arrays.asList(key));
 			}
 		}
 	}

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.BusinessCashDao">
+<mapper namespace="com.igomall.dao.BusinessCashDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.BusinessCash">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.BusinessCash">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -12,7 +12,7 @@
         <result column="amount" property="amount" />
         <result column="bank" property="bank" />
         <result column="status" property="status" />
-        <association property="business" select="net.shopec.dao.BusinessDao.find" column="business_id" javaType="net.shopec.entity.Business" fetchType="lazy"/>
+        <association property="business" select="com.igomall.dao.BusinessDao.find" column="business_id" javaType="com.igomall.entity.Business" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -92,7 +92,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.BusinessCash">
+	<insert id="save" parameterType="com.igomall.entity.BusinessCash">
     	INSERT INTO business_cash(
 			id ,
 			created_date ,
@@ -115,7 +115,7 @@
   	</insert>
 	
 	<!-- 更新 -->
-	<update id="update" parameterType="net.shopec.entity.BusinessCash">
+	<update id="update" parameterType="com.igomall.entity.BusinessCash">
    		UPDATE business_cash
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

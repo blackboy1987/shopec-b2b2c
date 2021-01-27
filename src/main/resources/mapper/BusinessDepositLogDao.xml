@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.BusinessDepositLogDao">
+<mapper namespace="com.igomall.dao.BusinessDepositLogDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.BusinessDepositLog">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.BusinessDepositLog">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -13,7 +13,7 @@
         <result column="debit" property="debit" />
         <result column="memo" property="memo" />
         <result column="type" property="type" />
-        <association property="business" select="net.shopec.dao.BusinessDao.find" column="business_id" javaType="net.shopec.entity.Business" fetchType="lazy"/>
+        <association property="business" select="com.igomall.dao.BusinessDao.find" column="business_id" javaType="com.igomall.entity.Business" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -83,7 +83,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.BusinessDepositLog">
+	<insert id="save" parameterType="com.igomall.entity.BusinessDepositLog">
    		INSERT INTO business_deposit_log(
 			id ,
 			created_date ,

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.ProductNotifyDao">
+<mapper namespace="com.igomall.dao.ProductNotifyDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.ProductNotify">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.ProductNotify">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
         <result column="last_modified_date" property="lastModifiedDate" />
         <result column="email" property="email" />
         <result column="has_sent" property="hasSent" />
-        <association property="member" select="net.shopec.dao.MemberDao.find" column="member_id" javaType="net.shopec.entity.Member" fetchType="lazy"/>
-        <association property="sku" select="net.shopec.dao.SkuDao.find" column="sku_id" javaType="net.shopec.entity.Sku" fetchType="lazy"/>
+        <association property="member" select="com.igomall.dao.MemberDao.find" column="member_id" javaType="com.igomall.entity.Member" fetchType="lazy"/>
+        <association property="sku" select="com.igomall.dao.SkuDao.find" column="sku_id" javaType="com.igomall.entity.Sku" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -122,7 +122,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.ProductNotify">
+	<insert id="save" parameterType="com.igomall.entity.ProductNotify">
     	INSERT INTO product_notify(
 			id ,
 			created_date ,
@@ -143,7 +143,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.ProductNotify">
+  	<update id="update" parameterType="com.igomall.entity.ProductNotify">
     	UPDATE product_notify
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

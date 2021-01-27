@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.AuditLogDao">
+<mapper namespace="com.igomall.dao.AuditLogDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.AuditLog">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.AuditLog">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -12,9 +12,9 @@
         <result column="detail" property="detail" />
         <result column="ip" property="ip" />
         <result column="parameters" property="parameters" jdbcType="LONGVARCHAR"
-				javaType="java.util.ArrayList" typeHandler="net.shopec.handlers.ParameterConverter"/> 
+				javaType="java.util.ArrayList" typeHandler="com.igomall.handlers.ParameterConverter"/>
         <result column="request_url" property="requestUrl" />
-        <association property="user" select="net.shopec.dao.UserDao.find" column="user_id"  javaType="net.shopec.entity.User" fetchType="lazy"/>
+        <association property="user" select="com.igomall.dao.UserDao.find" column="user_id" javaType="com.igomall.entity.User" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -57,7 +57,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.AuditLog">
+	<insert id="save" parameterType="com.igomall.entity.AuditLog">
    		INSERT INTO audit_log(
 			id ,
 			created_date ,
@@ -75,7 +75,7 @@
 			#{entity.action}, 
 			#{entity.detail}, 
 			#{entity.ip}, 
-			#{entity.parameters, typeHandler=net.shopec.handlers.ParameterConverter}, 
+			#{entity.parameters, typeHandler=com.igomall.handlers.ParameterConverter},
 			#{entity.requestUrl}, 
 			#{entity.user.id}
 		)

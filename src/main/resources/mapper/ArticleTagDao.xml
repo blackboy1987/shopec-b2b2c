@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.ArticleTagDao">
+<mapper namespace="com.igomall.dao.ArticleTagDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.ArticleTag">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.ArticleTag">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -11,7 +11,7 @@
         <result column="orders" property="order" />
         <result column="memo" property="memo" />
         <result column="name" property="name" />
-        <collection property="articles" select="net.shopec.dao.ArticleDao.findSet" column="{attributeName=article_tag_id, attributeValue=id}" ofType="net.shopec.entity.Article" fetchType="lazy"/>
+        <collection property="articles" select="com.igomall.dao.ArticleDao.findSet" column="{attributeName=article_tag_id, attributeValue=id}" ofType="com.igomall.entity.Article" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -32,7 +32,7 @@
 	</select>
 	
 	<!-- 查找所有实体对象集合 -->
-	<select id="findAll" resultType="net.shopec.entity.ArticleTag">
+	<select id="findAll" resultType="com.igomall.entity.ArticleTag">
 		SELECT
 			<include refid="Base_Column_List"></include>
 		FROM
@@ -63,7 +63,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.ArticleTag">
+	<insert id="save" parameterType="com.igomall.entity.ArticleTag">
     	INSERT INTO article_tag(
 			id ,
 			created_date ,
@@ -83,7 +83,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.ArticleTag">
+  	<update id="update" parameterType="com.igomall.entity.ArticleTag">
    		UPDATE article_tag
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

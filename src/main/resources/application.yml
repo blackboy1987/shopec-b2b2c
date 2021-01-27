@@ -45,8 +45,8 @@ spring:
     suffix: .ftl
 mybatis-plus:
   mapper-locations: mapper/*Dao.xml
-  typeAliasesPackage: net.shopec.entity
-  typeEnumsPackage: net.shopec.entity
+  typeAliasesPackage: com.igomall.entity
+  typeEnumsPackage: com.igomall.entity
   global-config: 
     id-type: 3
     #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
@@ -66,7 +66,7 @@ mybatis-plus:
     #sql-injector: com.baomidou.springboot.xxx
     # SQL 解析缓存，开启后多租户 @SqlParser 注解生效
     # 公共字段自动填充
-    #metaObjectHandler: net.shopec.config.MyMetaObjectHandler
+    #metaObjectHandler: com.igomall.config.MyMetaObjectHandler
     sql-parser-cache: true
     # 是否自动刷新 Mapper 对应的 XML 文件
     refresh: true

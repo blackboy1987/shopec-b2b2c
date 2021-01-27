@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.StoreRankDao">
+<mapper namespace="com.igomall.dao.StoreRankDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.StoreRank">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.StoreRank">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -14,7 +14,7 @@
         <result column="name" property="name" />
         <result column="quantity" property="quantity" />
         <result column="service_fee" property="serviceFee" />
-        <collection property="stores" select="net.shopec.dao.StoreDao.findSet" column="{attributeName=store_rank_id, attributeValue=id}" ofType="net.shopec.entity.StoreRank" fetchType="lazy"/>
+        <collection property="stores" select="com.igomall.dao.StoreDao.findSet" column="{attributeName=store_rank_id, attributeValue=id}" ofType="com.igomall.entity.StoreRank" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -92,7 +92,7 @@
 	</select>
 	
     <!-- 保存 -->
-    <insert id="save" parameterType="net.shopec.entity.StoreRank">
+    <insert id="save" parameterType="com.igomall.entity.StoreRank">
    		INSERT INTO store_rank(
 			id ,
 			created_date ,
@@ -117,7 +117,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.StoreRank">
+  	<update id="update" parameterType="com.igomall.entity.StoreRank">
     	UPDATE store_rank
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

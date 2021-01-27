@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.MemberRankDao">
+<mapper namespace="com.igomall.dao.MemberRankDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.MemberRank">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.MemberRank">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -13,8 +13,8 @@
         <result column="is_special" property="isSpecial" />
         <result column="name" property="name" />
         <result column="scale" property="scale" />
-        <collection property="members" select="net.shopec.dao.MemberDao.findSet" column="{attributeName=member_rank_id, attributeValue=id}" ofType="net.shopec.entity.Member" fetchType="lazy"/>
-        <collection property="promotions" select="net.shopec.dao.PromotionDao.findSet" column="{attributeName=member_rank_id, attributeValue=id}" ofType="net.shopec.entity.Promotion" fetchType="lazy"/>
+        <collection property="members" select="com.igomall.dao.MemberDao.findSet" column="{attributeName=member_rank_id, attributeValue=id}" ofType="com.igomall.entity.Member" fetchType="lazy"/>
+        <collection property="promotions" select="com.igomall.dao.PromotionDao.findSet" column="{attributeName=member_rank_id, attributeValue=id}" ofType="com.igomall.entity.Promotion" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -111,7 +111,7 @@
 	</update>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.MemberRank">
+	<insert id="save" parameterType="com.igomall.entity.MemberRank">
    		INSERT INTO member_rank(
 			id ,
 			created_date ,
@@ -133,7 +133,7 @@
   	</insert>
 	
 	<!-- 更新 -->
-	<update id="update" parameterType="net.shopec.entity.MemberRank">
+	<update id="update" parameterType="com.igomall.entity.MemberRank">
 	    UPDATE member_rank
 			SET last_modified_date = #{entity.lastModifiedDate},
 				version = #{entity.version} + 1,

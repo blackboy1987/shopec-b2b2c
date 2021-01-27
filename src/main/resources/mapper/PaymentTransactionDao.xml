@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.PaymentTransactionDao">
+<mapper namespace="com.igomall.dao.PaymentTransactionDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.PaymentTransaction">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.PaymentTransaction">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -17,12 +17,12 @@
         <result column="re_pay_url" property="rePayUrl" />
         <result column="sn" property="sn" />
         <result column="type" property="type" />
-        <association property="parent" select="find" column="parent_id" javaType="net.shopec.entity.PaymentTransaction" fetchType="lazy"/>
-        <association property="order" select="net.shopec.dao.OrderDao.find" column="orders" javaType="net.shopec.entity.Order" fetchType="lazy"/>
-       	<association property="svc" select="net.shopec.dao.SvcDao.find" column="svc_id" javaType="net.shopec.entity.Svc" fetchType="lazy"/>
-        <association property="store" select="net.shopec.dao.StoreDao.find" column="store_id" javaType="net.shopec.entity.Store" fetchType="lazy"/>
-        <association property="user" select="net.shopec.dao.UserDao.find" column="user_id"  javaType="net.shopec.entity.User" fetchType="lazy"/>
-        <collection property="children" select="findSet" column="{attributeName=parentId, attributeValue=id}" ofType="net.shopec.entity.PaymentTransaction" fetchType="lazy"/>
+        <association property="parent" select="find" column="parent_id" javaType="com.igomall.entity.PaymentTransaction" fetchType="lazy"/>
+        <association property="order" select="com.igomall.dao.OrderDao.find" column="orders" javaType="com.igomall.entity.Order" fetchType="lazy"/>
+       	<association property="svc" select="com.igomall.dao.SvcDao.find" column="svc_id" javaType="com.igomall.entity.Svc" fetchType="lazy"/>
+        <association property="store" select="com.igomall.dao.StoreDao.find" column="store_id" javaType="com.igomall.entity.Store" fetchType="lazy"/>
+        <association property="user" select="com.igomall.dao.UserDao.find" column="user_id" javaType="com.igomall.entity.User" fetchType="lazy"/>
+        <collection property="children" select="findSet" column="{attributeName=parentId, attributeValue=id}" ofType="com.igomall.entity.PaymentTransaction" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -117,7 +117,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.PaymentTransaction">
+	<insert id="save" parameterType="com.igomall.entity.PaymentTransaction">
     	INSERT INTO payment_transaction(
 			id ,
 			created_date ,
@@ -158,7 +158,7 @@
   	</insert>
 	
 	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.PaymentTransaction">
+  	<update id="update" parameterType="com.igomall.entity.PaymentTransaction">
     	UPDATE payment_transaction
 		SET last_modified_date = NOW(),
 			is_success = #{entity.isSuccess}

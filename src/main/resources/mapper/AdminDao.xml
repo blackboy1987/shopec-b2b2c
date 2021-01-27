@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.AdminDao">
+<mapper namespace="com.igomall.dao.AdminDao">
 	
 	<!-- User查询映射结果 -->
-    <resultMap id="UserResultMap" type="net.shopec.entity.User">
+    <resultMap id="UserResultMap" type="com.igomall.entity.User">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -16,14 +16,14 @@
     </resultMap>
     
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Admin" extends="UserResultMap">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Admin" extends="UserResultMap">
         <result column="username" property="username" />
         <result column="encoded_password" property="encodedPassword" />
         <result column="email" property="email" />
         <result column="mobile" property="mobile" />
         <result column="name" property="name" />
         <result column="department" property="department" />
-        <collection property="roles" select="net.shopec.dao.RoleDao.findSet" column="{attributeValue=id}" ofType="net.shopec.entity.Role" fetchType="lazy" />
+        <collection property="roles" select="com.igomall.dao.RoleDao.findSet" column="{attributeValue=id}" ofType="com.igomall.entity.Role" fetchType="lazy" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -124,7 +124,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Admin">
+	<insert id="save" parameterType="com.igomall.entity.Admin">
     	INSERT INTO users(
 			id ,
 			dtype ,
@@ -170,7 +170,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.Admin">
+  	<update id="update" parameterType="com.igomall.entity.Admin">
     	UPDATE users
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

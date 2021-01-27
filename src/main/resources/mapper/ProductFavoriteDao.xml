@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.ProductFavoriteDao">
+<mapper namespace="com.igomall.dao.ProductFavoriteDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.ProductFavorite">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.ProductFavorite">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
         <result column="last_modified_date" property="lastModifiedDate" />
-        <association property="member" select="net.shopec.dao.MemberDao.find" column="member_id" javaType="net.shopec.entity.Member" fetchType="lazy" />
-        <association property="product" select="net.shopec.dao.ProductDao.find" column="product_id" javaType="net.shopec.entity.Product" fetchType="lazy"/>
+        <association property="member" select="com.igomall.dao.MemberDao.find" column="member_id" javaType="com.igomall.entity.Member" fetchType="lazy" />
+        <association property="product" select="com.igomall.dao.ProductDao.find" column="product_id" javaType="com.igomall.entity.Product" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -96,7 +96,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.ProductFavorite">
+	<insert id="save" parameterType="com.igomall.entity.ProductFavorite">
    		INSERT INTO product_favorite(
 			id ,
 			created_date ,

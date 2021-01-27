@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.OrderShippingItemDao">
+<mapper namespace="com.igomall.dao.OrderShippingItemDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.OrderShippingItem">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.OrderShippingItem">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -13,9 +13,9 @@
         <result column="quantity" property="quantity" />
         <result column="sn" property="sn" />
         <result column="specifications" property="specifications" jdbcType="LONGVARCHAR"
-				javaType="java.util.ArrayList" typeHandler="net.shopec.handlers.SpecificationConverter" />
-		<association property="sku" select="net.shopec.dao.SkuDao.find" column="sku_id" javaType="net.shopec.entity.Sku" fetchType="lazy"/>
-       	<association property="orderShipping" select="net.shopec.dao.OrderShippingDao.find" column="order_shipping_id" javaType="net.shopec.entity.OrderShipping" fetchType="lazy"/>
+				javaType="java.util.ArrayList" typeHandler="com.igomall.handlers.SpecificationConverter" />
+		<association property="sku" select="com.igomall.dao.SkuDao.find" column="sku_id" javaType="com.igomall.entity.Sku" fetchType="lazy"/>
+       	<association property="orderShipping" select="com.igomall.dao.OrderShippingDao.find" column="order_shipping_id" javaType="com.igomall.entity.OrderShipping" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -36,7 +36,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="saveBatch" parameterType="net.shopec.entity.OrderShippingItem">
+	<insert id="saveBatch" parameterType="com.igomall.entity.OrderShippingItem">
     	INSERT INTO order_shipping_item(
 			id ,
 			created_date ,
@@ -58,7 +58,7 @@
 				#{entity.name}, 
 				#{entity.quantity}, 
 				#{entity.sn}, 
-				#{entity.specifications, typeHandler=net.shopec.handlers.SpecificationConverter},
+				#{entity.specifications, typeHandler=com.igomall.handlers.SpecificationConverter},
 				#{entity.orderShipping.id}, 
 				#{entity.sku.id}
 			)

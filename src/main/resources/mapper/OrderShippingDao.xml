@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.OrderShippingDao">
+<mapper namespace="com.igomall.dao.OrderShippingDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.OrderShipping">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.OrderShipping">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -21,8 +21,8 @@
         <result column="sn" property="sn" />
         <result column="tracking_no" property="trackingNo" />
         <result column="zip_code" property="zipCode" />
-        <association property="order" select="net.shopec.dao.OrderDao.find" column="orders" javaType="net.shopec.entity.Order" fetchType="lazy"/>
-        <collection property="orderShippingItems" select="net.shopec.dao.OrderShippingItemDao.findSet" column="{attributeName=order_shipping_id, attributeValue=id}" ofType="net.shopec.entity.OrderShippingItem" fetchType="lazy"/>
+        <association property="order" select="com.igomall.dao.OrderDao.find" column="orders" javaType="com.igomall.entity.Order" fetchType="lazy"/>
+        <collection property="orderShippingItems" select="com.igomall.dao.OrderShippingItemDao.findSet" column="{attributeName=order_shipping_id, attributeValue=id}" ofType="com.igomall.entity.OrderShippingItem" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -102,7 +102,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.OrderShipping">
+	<insert id="save" parameterType="com.igomall.entity.OrderShipping">
    		INSERT INTO order_shipping(
 			id ,
 			created_date ,

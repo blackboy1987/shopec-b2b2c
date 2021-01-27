@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.StoreProductCategoryDao">
+<mapper namespace="com.igomall.dao.StoreProductCategoryDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.StoreProductCategory">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.StoreProductCategory">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -12,10 +12,10 @@
         <result column="grade" property="grade" />
         <result column="name" property="name" />
         <result column="tree_path" property="treePath" />
-        <association property="parent" select="find" column="parent_id" javaType="net.shopec.entity.StoreProductCategory" fetchType="lazy"/>
-        <association property="store" select="net.shopec.dao.StoreDao.find" column="store_id" javaType="net.shopec.entity.Store" fetchType="lazy"/>
-        <collection property="children" select="findSet" column="{attributeName=parentId, attributeValue=id}" ofType="net.shopec.entity.StoreProductCategory" fetchType="lazy"/>
-        <collection property="products" select="net.shopec.dao.ProductDao.findSet" column="{attributeName=store_product_category_id, attributeValue=id}" ofType="net.shopec.entity.Product" fetchType="lazy"/>
+        <association property="parent" select="find" column="parent_id" javaType="com.igomall.entity.StoreProductCategory" fetchType="lazy"/>
+        <association property="store" select="com.igomall.dao.StoreDao.find" column="store_id" javaType="com.igomall.entity.Store" fetchType="lazy"/>
+        <collection property="children" select="findSet" column="{attributeName=parentId, attributeValue=id}" ofType="com.igomall.entity.StoreProductCategory" fetchType="lazy"/>
+        <collection property="products" select="com.igomall.dao.ProductDao.findSet" column="{attributeName=store_product_category_id, attributeValue=id}" ofType="com.igomall.entity.Product" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -133,7 +133,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.StoreProductCategory">
+	<insert id="save" parameterType="com.igomall.entity.StoreProductCategory">
     	INSERT INTO store_product_category(
 			id ,
 			created_date ,
@@ -158,7 +158,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.StoreProductCategory">
+  	<update id="update" parameterType="com.igomall.entity.StoreProductCategory">
     	UPDATE store_product_category
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.CategoryApplicationDao">
+<mapper namespace="com.igomall.dao.CategoryApplicationDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.CategoryApplication">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.CategoryApplication">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
         <result column="last_modified_date" property="lastModifiedDate" />
         <result column="rate" property="rate" />
         <result column="status" property="status" />
-        <association property="store" select="net.shopec.dao.StoreDao.find" column="store_id" javaType="net.shopec.entity.Store" fetchType="lazy"/>
-       	<association property="productCategory" select="net.shopec.dao.ProductCategoryDao.find" column="product_category_id" javaType="net.shopec.entity.ProductCategory" fetchType="lazy"/>
+        <association property="store" select="com.igomall.dao.StoreDao.find" column="store_id" javaType="com.igomall.entity.Store" fetchType="lazy"/>
+       	<association property="productCategory" select="com.igomall.dao.ProductCategoryDao.find" column="product_category_id" javaType="com.igomall.entity.ProductCategory" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -105,7 +105,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.CategoryApplication">
+	<insert id="save" parameterType="com.igomall.entity.CategoryApplication">
     	INSERT INTO category_application(
 			id ,
 			created_date ,
@@ -126,7 +126,7 @@
   	</insert>
   
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.CategoryApplication">
+  	<update id="update" parameterType="com.igomall.entity.CategoryApplication">
    		UPDATE category_application
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

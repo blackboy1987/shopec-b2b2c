@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.MessageDao">
+<mapper namespace="com.igomall.dao.MessageDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Message">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Message">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
         <result column="last_modified_date" property="lastModifiedDate" />
         <result column="content" property="content" />
         <result column="ip" property="ip" />
-       	<association property="fromUser" select="net.shopec.dao.UserDao.find" column="from_user_id" javaType="net.shopec.entity.User" fetchType="lazy"/>
-        <association property="toUser" select="net.shopec.dao.UserDao.find" column="to_user_id" javaType="net.shopec.entity.User" fetchType="lazy"/>
-       	<association property="fromUserMessageStatus" javaType="net.shopec.entity.MessageStatus">
+       	<association property="fromUser" select="com.igomall.dao.UserDao.find" column="from_user_id" javaType="com.igomall.entity.User" fetchType="lazy"/>
+        <association property="toUser" select="com.igomall.dao.UserDao.find" column="to_user_id" javaType="com.igomall.entity.User" fetchType="lazy"/>
+       	<association property="fromUserMessageStatus" javaType="com.igomall.entity.MessageStatus">
         	<result column="from_user_message_status_is_read" property="isRead"/>
         	<result column="from_user_message_status_is_deleted" property="isDeleted"/>
         </association>
-        <association property="toUserMessageStatus" javaType="net.shopec.entity.MessageStatus">
+        <association property="toUserMessageStatus" javaType="com.igomall.entity.MessageStatus">
         	<result column="to_user_message_status_is_read" property="isRead"/>
         	<result column="to_user_message_status_is_deleted" property="isDeleted"/>
         </association>
-        <association property="messageGroup" select="net.shopec.dao.MessageGroupDao.find" column="message_group_id" javaType="net.shopec.entity.MessageGroup" fetchType="lazy"/>
+        <association property="messageGroup" select="com.igomall.dao.MessageGroupDao.find" column="message_group_id" javaType="com.igomall.entity.MessageGroup" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -86,7 +86,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Message">
+	<insert id="save" parameterType="com.igomall.entity.Message">
    		INSERT INTO message(
 			id ,
 			created_date ,

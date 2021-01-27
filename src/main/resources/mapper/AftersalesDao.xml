@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.AftersalesDao">
+<mapper namespace="com.igomall.dao.AftersalesDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Aftersales">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Aftersales">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -14,9 +14,9 @@
         <result column="type" property="type" />
         <result column="status" property="status" />
         <result column="tracking_no" property="trackingNo" />
-        <association property="member" select="net.shopec.dao.MemberDao.find" column="member_id" javaType="net.shopec.entity.Member" fetchType="lazy"/>
-        <association property="store" select="net.shopec.dao.StoreDao.find" column="store_id" javaType="net.shopec.entity.Store" fetchType="lazy"/>
-        <collection property="aftersalesItems" select="net.shopec.dao.AftersalesItemDao.findSet" column="{attributeName=aftersales_id, attributeValue=id}" ofType="net.shopec.entity.AftersalesItem" fetchType="lazy"/>
+        <association property="member" select="com.igomall.dao.MemberDao.find" column="member_id" javaType="com.igomall.entity.Member" fetchType="lazy"/>
+        <association property="store" select="com.igomall.dao.StoreDao.find" column="store_id" javaType="com.igomall.entity.Store" fetchType="lazy"/>
+        <collection property="aftersalesItems" select="com.igomall.dao.AftersalesItemDao.findSet" column="{attributeName=aftersales_id, attributeValue=id}" ofType="com.igomall.entity.AftersalesItem" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -97,7 +97,7 @@
 	</select>
 	
 	<!-- 更新 -->
-	<update id="update" parameterType="net.shopec.entity.Aftersales">
+	<update id="update" parameterType="com.igomall.entity.Aftersales">
     	UPDATE aftersales
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

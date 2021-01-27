@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.AftersalesSettingDao">
+<mapper namespace="com.igomall.dao.AftersalesSettingDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.AftersalesSetting">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.AftersalesSetting">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -11,7 +11,7 @@
         <result column="repair_tips" property="repairTips" />
         <result column="replacement_tips" property="replacementTips" />
         <result column="returns_tips" property="returnsTips" />
-        <association property="store" select="net.shopec.dao.StoreDao.find" column="store_id" javaType="net.shopec.entity.Store" fetchType="lazy"/>
+        <association property="store" select="com.igomall.dao.StoreDao.find" column="store_id" javaType="com.igomall.entity.Store" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -42,7 +42,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.AftersalesSetting">
+	<insert id="save" parameterType="com.igomall.entity.AftersalesSetting">
    		INSERT INTO aftersales_setting(
 			id ,
 			created_date ,
@@ -63,7 +63,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.AftersalesSetting">
+  	<update id="update" parameterType="com.igomall.entity.AftersalesSetting">
    		UPDATE aftersales_setting
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

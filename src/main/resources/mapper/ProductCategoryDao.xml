@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.ProductCategoryDao">
+<mapper namespace="com.igomall.dao.ProductCategoryDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.ProductCategory">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.ProductCategory">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -18,16 +18,16 @@
         <result column="seo_keywords" property="seoKeywords" />
         <result column="seo_title" property="seoTitle" />
         <result column="tree_path" property="treePath" />
-        <association property="parent" select="find" column="parent_id"  javaType="net.shopec.entity.ProductCategory" fetchType="lazy"/>
-        <collection property="children" select="findSet" column="{attributeName=parentId, attributeValue=id}" ofType="net.shopec.entity.ProductCategory" fetchType="lazy"/>
-        <collection property="products" select="net.shopec.dao.ProductDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="net.shopec.entity.Product" fetchType="lazy"/>
-        <collection property="brands" select="net.shopec.dao.BrandDao.findSet" column="{attributeValue=id}" ofType="net.shopec.entity.Brand" fetchType="lazy"/>
-        <collection property="promotions" select="net.shopec.dao.PromotionDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="net.shopec.entity.Promotion" fetchType="lazy"/>
-        <collection property="parameters" select="net.shopec.dao.ParameterDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="net.shopec.entity.Parameter" fetchType="lazy"/>
-        <collection property="attributes" select="net.shopec.dao.AttributeDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="net.shopec.entity.Attribute" fetchType="lazy"/>
-        <collection property="specifications" select="net.shopec.dao.SpecificationDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="net.shopec.entity.Specification" fetchType="lazy"/>
-        <collection property="stores" select="net.shopec.dao.StoreDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="net.shopec.entity.Store" fetchType="lazy"/>
-        <collection property="categoryApplications" select="net.shopec.dao.CategoryApplicationDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="net.shopec.entity.CategoryApplication" fetchType="lazy"/>
+        <association property="parent" select="find" column="parent_id" javaType="com.igomall.entity.ProductCategory" fetchType="lazy"/>
+        <collection property="children" select="findSet" column="{attributeName=parentId, attributeValue=id}" ofType="com.igomall.entity.ProductCategory" fetchType="lazy"/>
+        <collection property="products" select="com.igomall.dao.ProductDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="com.igomall.entity.Product" fetchType="lazy"/>
+        <collection property="brands" select="com.igomall.dao.BrandDao.findSet" column="{attributeValue=id}" ofType="com.igomall.entity.Brand" fetchType="lazy"/>
+        <collection property="promotions" select="com.igomall.dao.PromotionDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="com.igomall.entity.Promotion" fetchType="lazy"/>
+        <collection property="parameters" select="com.igomall.dao.ParameterDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="com.igomall.entity.Parameter" fetchType="lazy"/>
+        <collection property="attributes" select="com.igomall.dao.AttributeDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="com.igomall.entity.Attribute" fetchType="lazy"/>
+        <collection property="specifications" select="com.igomall.dao.SpecificationDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="com.igomall.entity.Specification" fetchType="lazy"/>
+        <collection property="stores" select="com.igomall.dao.StoreDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="com.igomall.entity.Store" fetchType="lazy"/>
+        <collection property="categoryApplications" select="com.igomall.dao.CategoryApplicationDao.findSet" column="{attributeName=product_category_id, attributeValue=id}" ofType="com.igomall.entity.CategoryApplication" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -48,7 +48,7 @@
 	</select>
 	
 	<!-- 查找实体对象集合 -->
-	<select id="findSet" resultType="net.shopec.entity.ProductCategory">
+	<select id="findSet" resultType="com.igomall.entity.ProductCategory">
 		SELECT
 			<include refid="Base_Column_List"></include>
 		FROM
@@ -161,7 +161,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.ProductCategory">
+	<insert id="save" parameterType="com.igomall.entity.ProductCategory">
     	INSERT INTO product_category(
 			id ,
 			created_date ,
@@ -213,7 +213,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.ProductCategory">
+  	<update id="update" parameterType="com.igomall.entity.ProductCategory">
     	UPDATE product_category
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

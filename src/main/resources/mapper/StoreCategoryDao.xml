@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.StoreCategoryDao">
+<mapper namespace="com.igomall.dao.StoreCategoryDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.StoreCategory">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.StoreCategory">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -11,7 +11,7 @@
         <result column="orders" property="order" />
         <result column="bail" property="bail" />
         <result column="name" property="name" />
-        <collection property="stores" select="net.shopec.dao.StoreDao.findSet" column="{attributeName=store_category_id, attributeValue=id}" ofType="net.shopec.entity.Store" fetchType="lazy"/>
+        <collection property="stores" select="com.igomall.dao.StoreDao.findSet" column="{attributeName=store_category_id, attributeValue=id}" ofType="com.igomall.entity.Store" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -32,7 +32,7 @@
 	</select>
 	
 	<!-- 查找所有实体对象集合 -->
-	<select id="findAll" resultType="net.shopec.entity.StoreCategory">
+	<select id="findAll" resultType="com.igomall.entity.StoreCategory">
 		SELECT
 			<include refid="Base_Column_List"></include>
 		FROM
@@ -125,7 +125,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.StoreCategory">
+	<insert id="save" parameterType="com.igomall.entity.StoreCategory">
     	INSERT INTO store_category(
 			id ,
 			created_date ,
@@ -145,7 +145,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.StoreCategory">
+  	<update id="update" parameterType="com.igomall.entity.StoreCategory">
    		UPDATE store_category
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

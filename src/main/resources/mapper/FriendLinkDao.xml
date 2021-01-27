@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.FriendLinkDao">
+<mapper namespace="com.igomall.dao.FriendLinkDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.FriendLink">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.FriendLink">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -72,7 +72,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.FriendLink">
+	<insert id="save" parameterType="com.igomall.entity.FriendLink">
     	INSERT INTO friend_link(
 			id ,
 			created_date ,
@@ -96,7 +96,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.FriendLink">
+  	<update id="update" parameterType="com.igomall.entity.FriendLink">
     	UPDATE friend_link
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

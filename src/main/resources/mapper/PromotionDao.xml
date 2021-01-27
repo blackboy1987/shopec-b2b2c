@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.PromotionDao">
+<mapper namespace="com.igomall.dao.PromotionDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Promotion">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Promotion">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -17,11 +17,11 @@
         <result column="is_enabled" property="isEnabled" />
         <result column="name" property="name" />
         <result column="promotion_plugin_id" property="promotionPluginId" />
-        <association property="store" select="net.shopec.dao.StoreDao.find" column="store_id" javaType="net.shopec.entity.Store" fetchType="lazy"/>
-        <association property="promotionDefaultAttribute" select="net.shopec.dao.PromotionDefaultAttributeDao.findByAttribute" column="{attributeName=promotion_id, attributeValue=id}" javaType="net.shopec.entity.PromotionDefaultAttribute" fetchType="lazy"/>
-        <collection property="memberRanks" select="net.shopec.dao.MemberRankDao.findSet" column="{attributeName=promotion_id, attributeValue=id}" ofType="net.shopec.entity.MemberRank" fetchType="lazy"/>
-        <collection property="products" select="net.shopec.dao.ProductDao.findSet" column="{attributeName=promotion_id, attributeValue=id}" ofType="net.shopec.entity.Product" fetchType="lazy"/>
-        <collection property="productCategories" select="net.shopec.dao.ProductCategoryDao.findSet" column="{attributeName=promotion_id, attributeValue=id}" ofType="net.shopec.entity.ProductCategory" fetchType="lazy"/>
+        <association property="store" select="com.igomall.dao.StoreDao.find" column="store_id" javaType="com.igomall.entity.Store" fetchType="lazy"/>
+        <association property="promotionDefaultAttribute" select="com.igomall.dao.PromotionDefaultAttributeDao.findByAttribute" column="{attributeName=promotion_id, attributeValue=id}" javaType="com.igomall.entity.PromotionDefaultAttribute" fetchType="lazy"/>
+        <collection property="memberRanks" select="com.igomall.dao.MemberRankDao.findSet" column="{attributeName=promotion_id, attributeValue=id}" ofType="com.igomall.entity.MemberRank" fetchType="lazy"/>
+        <collection property="products" select="com.igomall.dao.ProductDao.findSet" column="{attributeName=promotion_id, attributeValue=id}" ofType="com.igomall.entity.Product" fetchType="lazy"/>
+        <collection property="productCategories" select="com.igomall.dao.ProductCategoryDao.findSet" column="{attributeName=promotion_id, attributeValue=id}" ofType="com.igomall.entity.ProductCategory" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -201,7 +201,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Promotion">
+	<insert id="save" parameterType="com.igomall.entity.Promotion">
     	INSERT INTO promotion(
 			id ,
 			created_date ,
@@ -242,7 +242,7 @@
   	</insert>
   
 	<!-- 更新 -->
-	<update id="update" parameterType="net.shopec.entity.Promotion">
+	<update id="update" parameterType="com.igomall.entity.Promotion">
    		UPDATE promotion
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

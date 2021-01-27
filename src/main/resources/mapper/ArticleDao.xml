@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.ArticleDao">
+<mapper namespace="com.igomall.dao.ArticleDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Article">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Article">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -17,8 +17,8 @@
         <result column="seo_keywords" property="seoKeywords" />
         <result column="seo_title" property="seoTitle" />
         <result column="title" property="title" />
-        <association property="articleCategory" select="net.shopec.dao.ArticleCategoryDao.find" column="article_category_id"  javaType="net.shopec.entity.ArticleCategory" fetchType="lazy"/>
-        <collection property="articleTags" select="net.shopec.dao.ArticleTagDao.findSet" column="{attributeValue=id}" ofType="net.shopec.entity.ArticleTag" fetchType="lazy"/>
+        <association property="articleCategory" select="com.igomall.dao.ArticleCategoryDao.find" column="article_category_id" javaType="com.igomall.entity.ArticleCategory" fetchType="lazy"/>
+        <collection property="articleTags" select="com.igomall.dao.ArticleTagDao.findSet" column="{attributeValue=id}" ofType="com.igomall.entity.ArticleTag" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -145,7 +145,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Article">
+	<insert id="save" parameterType="com.igomall.entity.Article">
     	INSERT INTO article(
 			id ,
 			created_date ,
@@ -187,7 +187,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.Article">
+  	<update id="update" parameterType="com.igomall.entity.Article">
     	UPDATE article
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

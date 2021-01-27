@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.SeoDao">
+<mapper namespace="com.igomall.dao.SeoDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Seo">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Seo">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -42,7 +42,7 @@
 	</select>
 	
 	<!-- 更新 -->
-	<update id="update" parameterType="net.shopec.entity.Seo">
+	<update id="update" parameterType="com.igomall.entity.Seo">
     	UPDATE seo
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

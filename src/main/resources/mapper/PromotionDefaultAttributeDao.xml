@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.PromotionDefaultAttributeDao">
+<mapper namespace="com.igomall.dao.PromotionDefaultAttributeDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.PromotionDefaultAttribute">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.PromotionDefaultAttribute">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -12,21 +12,21 @@
         <result column="max_quantity" property="maxQuantity" />
         <result column="min_price" property="minPrice" />
         <result column="min_quantity" property="minQuantity" />
-        <association property="promotion" select="net.shopec.dao.PromotionDao.find" column="promotion_id" javaType="net.shopec.entity.Promotion" fetchType="lazy"/>
+        <association property="promotion" select="com.igomall.dao.PromotionDao.find" column="promotion_id" javaType="com.igomall.entity.Promotion" fetchType="lazy"/>
         <discriminator javaType="string" column="dtype">
-        	<case value="MoneyOffAttribute" resultType="net.shopec.entity.MoneyOffAttribute">
+        	<case value="MoneyOffAttribute" resultType="com.igomall.entity.MoneyOffAttribute">
         		<result column="discount_type" property="discountType" />
         		<result column="condition_value" property="conditionValue" />
         		<result column="discoun_value" property="discounValue" />
         	</case>
-        	<case value="FreeShippingAttribute" resultType="net.shopec.entity.FreeShippingAttribute">
+        	<case value="FreeShippingAttribute" resultType="com.igomall.entity.FreeShippingAttribute">
         		 <result column="is_free_shipping" property="isFreeShipping" />
         	</case>
-        	<case value="GiftAttribute" resultType="net.shopec.entity.GiftAttribute">
-        		<collection property="gifts" select="net.shopec.dao.SkuDao.findSet" column="{attributeName=promotion_default_attribute_id, attributeValue=id}" ofType="net.shopec.entity.Sku" fetchType="lazy"/>
+        	<case value="GiftAttribute" resultType="com.igomall.entity.GiftAttribute">
+        		<collection property="gifts" select="com.igomall.dao.SkuDao.findSet" column="{attributeName=promotion_default_attribute_id, attributeValue=id}" ofType="com.igomall.entity.Sku" fetchType="lazy"/>
         	</case>
-        	<case value="CouponAttribute" resultType="net.shopec.entity.CouponAttribute">
-        		<collection property="coupons" select="net.shopec.dao.CouponDao.findSet" column="{attributeName=promotion_default_attribute_id, attributeValue=id}" ofType="net.shopec.entity.Coupon" fetchType="lazy"/>
+        	<case value="CouponAttribute" resultType="com.igomall.entity.CouponAttribute">
+        		<collection property="coupons" select="com.igomall.dao.CouponDao.findSet" column="{attributeName=promotion_default_attribute_id, attributeValue=id}" ofType="com.igomall.entity.Coupon" fetchType="lazy"/>
         	</case>
         </discriminator>
     </resultMap>
@@ -70,7 +70,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.PromotionDefaultAttribute">
+	<insert id="save" parameterType="com.igomall.entity.PromotionDefaultAttribute">
    		INSERT INTO promotion_default_attribute(
 		  <if test="entity.id != null">
 	        id,
@@ -175,7 +175,7 @@
   	</insert>
   	
   	 <!-- 更新 -->
-  	 <update id="update" parameterType="net.shopec.entity.PromotionDefaultAttribute">
+  	 <update id="update" parameterType="com.igomall.entity.PromotionDefaultAttribute">
 	    UPDATE promotion_default_attribute
 	    <set>
 	      <if test="entity.lastModifiedDate != null">

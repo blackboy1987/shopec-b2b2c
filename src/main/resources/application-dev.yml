@@ -3,7 +3,7 @@ shopec:
 logging:
   level: 
     root: info
-    net.shopec: debug
+    com.i-gomall.com: debug
     #org.quartz: error
     #org.apache: error
     #org.springframework.beans: error

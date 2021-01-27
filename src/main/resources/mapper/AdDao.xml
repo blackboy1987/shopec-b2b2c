@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.AdDao">
+<mapper namespace="com.igomall.dao.AdDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Ad">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Ad">
         <result column="id" property="id" />
         <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -16,7 +16,7 @@
         <result column="title" property="title" />
         <result column="type" property="type" />
         <result column="url" property="url" />
-        <association property="adPosition" select="net.shopec.dao.AdPositionDao.find" column="ad_position_id" javaType="net.shopec.entity.AdPosition" fetchType="lazy"/>
+        <association property="adPosition" select="com.igomall.dao.AdPositionDao.find" column="ad_position_id" javaType="com.igomall.entity.AdPosition" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -59,7 +59,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Ad" >
+	<insert id="save" parameterType="com.igomall.entity.Ad" >
     	INSERT INTO ad(
 			id ,
 			created_date ,
@@ -91,7 +91,7 @@
  	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.Ad">
+  	<update id="update" parameterType="com.igomall.entity.Ad">
    		UPDATE ad
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

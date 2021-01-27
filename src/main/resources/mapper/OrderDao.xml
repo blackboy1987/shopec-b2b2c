@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.OrderDao">
+<mapper namespace="com.igomall.dao.OrderDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Order">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Order">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -31,7 +31,7 @@
         <result column="price" property="price" />
         <result column="promotion_discount" property="promotionDiscount" />
         <result column="promotion_names" property="promotionNames" jdbcType="LONGVARCHAR"
-				javaType="java.util.ArrayList" typeHandler="net.shopec.handlers.PromotionNameConverter"/>
+				javaType="java.util.ArrayList" typeHandler="com.igomall.handlers.PromotionNameConverter"/>
         <result column="quantity" property="quantity" />
         <result column="refund_amount" property="refundAmount" />
         <result column="returned_quantity" property="returnedQuantity" />
@@ -44,21 +44,21 @@
         <result column="type" property="type" />
         <result column="weight" property="weight" />
         <result column="zip_code" property="zipCode" />
-       	<association property="area" select="net.shopec.dao.AreaDao.find" column="area_id" javaType="net.shopec.entity.Area" fetchType="lazy"/>
-       	<association property="paymentMethod" select="net.shopec.dao.PaymentMethodDao.find" column="payment_method_id" javaType="net.shopec.entity.PaymentMethod" fetchType="lazy"/>
-       	<association property="shippingMethod" select="net.shopec.dao.ShippingMethodDao.find" column="shipping_method_id" javaType="net.shopec.entity.ShippingMethod" fetchType="lazy"/>
-       	<association property="member" select="net.shopec.dao.MemberDao.find" column="member_id" javaType="net.shopec.entity.Member" fetchType="lazy"/>
-        <association property="couponCode" select="net.shopec.dao.CouponCodeDao.find" column="coupon_code_id" javaType="net.shopec.entity.CouponCode" fetchType="lazy"/>
-        <association property="store" select="net.shopec.dao.StoreDao.find" column="store_id" javaType="net.shopec.entity.Store" fetchType="lazy"/>
-        <collection property="coupons" select="net.shopec.dao.CouponDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="net.shopec.entity.Coupon" fetchType="lazy"/>
-        <collection property="orderItems" select="net.shopec.dao.OrderItemDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="net.shopec.entity.OrderItem" fetchType="lazy"/>
-        <collection property="paymentTransactions" select="net.shopec.dao.PaymentTransactionDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="net.shopec.entity.PaymentTransaction" fetchType="lazy"/>
-        <collection property="orderPayments" select="net.shopec.dao.OrderPaymentDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="net.shopec.entity.OrderPayment" fetchType="lazy"/>
-        <collection property="orderRefunds" select="net.shopec.dao.OrderRefundsDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="net.shopec.entity.OrderRefunds" fetchType="lazy"/>
-        <collection property="orderShippings" select="net.shopec.dao.OrderShippingDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="net.shopec.entity.OrderShipping" fetchType="lazy"/>
-        <collection property="orderReturns" select="net.shopec.dao.OrderReturnsDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="net.shopec.entity.OrderReturns" fetchType="lazy"/>
-        <collection property="distributionCommissions" select="net.shopec.dao.DistributionCommissionDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="net.shopec.entity.DistributionCommission" fetchType="lazy"/>
-        <collection property="orderLogs" select="net.shopec.dao.OrderLogDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="net.shopec.entity.OrderLog" fetchType="lazy"/>
+       	<association property="area" select="com.igomall.dao.AreaDao.find" column="area_id" javaType="com.igomall.entity.Area" fetchType="lazy"/>
+       	<association property="paymentMethod" select="com.igomall.dao.PaymentMethodDao.find" column="payment_method_id" javaType="com.igomall.entity.PaymentMethod" fetchType="lazy"/>
+       	<association property="shippingMethod" select="com.igomall.dao.ShippingMethodDao.find" column="shipping_method_id" javaType="com.igomall.entity.ShippingMethod" fetchType="lazy"/>
+       	<association property="member" select="com.igomall.dao.MemberDao.find" column="member_id" javaType="com.igomall.entity.Member" fetchType="lazy"/>
+        <association property="couponCode" select="com.igomall.dao.CouponCodeDao.find" column="coupon_code_id" javaType="com.igomall.entity.CouponCode" fetchType="lazy"/>
+        <association property="store" select="com.igomall.dao.StoreDao.find" column="store_id" javaType="com.igomall.entity.Store" fetchType="lazy"/>
+        <collection property="coupons" select="com.igomall.dao.CouponDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="com.igomall.entity.Coupon" fetchType="lazy"/>
+        <collection property="orderItems" select="com.igomall.dao.OrderItemDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="com.igomall.entity.OrderItem" fetchType="lazy"/>
+        <collection property="paymentTransactions" select="com.igomall.dao.PaymentTransactionDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="com.igomall.entity.PaymentTransaction" fetchType="lazy"/>
+        <collection property="orderPayments" select="com.igomall.dao.OrderPaymentDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="com.igomall.entity.OrderPayment" fetchType="lazy"/>
+        <collection property="orderRefunds" select="com.igomall.dao.OrderRefundsDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="com.igomall.entity.OrderRefunds" fetchType="lazy"/>
+        <collection property="orderShippings" select="com.igomall.dao.OrderShippingDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="com.igomall.entity.OrderShipping" fetchType="lazy"/>
+        <collection property="orderReturns" select="com.igomall.dao.OrderReturnsDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="com.igomall.entity.OrderReturns" fetchType="lazy"/>
+        <collection property="distributionCommissions" select="com.igomall.dao.DistributionCommissionDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="com.igomall.entity.DistributionCommission" fetchType="lazy"/>
+        <collection property="orderLogs" select="com.igomall.dao.OrderLogDao.findSet" column="{attributeName=orders, attributeValue=id}" ofType="com.igomall.entity.OrderLog" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -487,7 +487,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Order">
+	<insert id="save" parameterType="com.igomall.entity.Order">
    		INSERT INTO orders(
 			id ,
 			created_date ,
@@ -565,7 +565,7 @@
 			#{entity.phone}, 
 			#{entity.price}, 
 			#{entity.promotionDiscount}, 
-			#{entity.promotionNames, typeHandler=net.shopec.handlers.PromotionNameConverter}, 
+			#{entity.promotionNames, typeHandler=com.igomall.handlers.PromotionNameConverter},
 			#{entity.quantity}, 
 			#{entity.refundAmount}, 
 			#{entity.returnedQuantity}, 
@@ -588,7 +588,7 @@
   	</insert>
   	
 	<!-- 更新 -->
-	<update id="update" parameterType="net.shopec.entity.Order">
+	<update id="update" parameterType="com.igomall.entity.Order">
    		UPDATE orders
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version},
@@ -617,7 +617,7 @@
 			phone = #{entity.phone},
 			price = #{entity.price},
 			promotion_discount = #{entity.promotionDiscount},
-			promotion_names = #{entity.promotionNames, typeHandler=net.shopec.handlers.PromotionNameConverter},
+			promotion_names = #{entity.promotionNames, typeHandler=com.igomall.handlers.PromotionNameConverter},
 			quantity = #{entity.quantity},
 			refund_amount = #{entity.refundAmount},
 			returned_quantity = #{entity.returnedQuantity},

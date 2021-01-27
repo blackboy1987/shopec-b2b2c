@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.DistributionCashDao">
+<mapper namespace="com.igomall.dao.DistributionCashDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.DistributionCash">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.DistributionCash">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -13,7 +13,7 @@
         <result column="amount" property="amount" />
         <result column="bank" property="bank" />
         <result column="status" property="status" />
-        <association property="distributor" select="net.shopec.dao.DistributorDao.find" column="distributor_id" javaType="net.shopec.entity.Distributor" fetchType="lazy"/>
+        <association property="distributor" select="com.igomall.dao.DistributorDao.find" column="distributor_id" javaType="com.igomall.entity.Distributor" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -116,7 +116,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.DistributionCash">
+	<insert id="save" parameterType="com.igomall.entity.DistributionCash">
     	INSERT INTO distribution_cash(
 			id ,
 			created_date ,
@@ -141,7 +141,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.DistributionCash">
+  	<update id="update" parameterType="com.igomall.entity.DistributionCash">
     	UPDATE distribution_cash
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

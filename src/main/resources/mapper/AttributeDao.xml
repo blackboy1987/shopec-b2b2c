@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.AttributeDao">
+<mapper namespace="com.igomall.dao.AttributeDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Attribute">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Attribute">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -11,9 +11,9 @@
         <result column="orders" property="order" />
         <result column="name" property="name" />
         <result column="options" property="options" jdbcType="LONGVARCHAR"
-				javaType="java.util.ArrayList" typeHandler="net.shopec.handlers.OptionConverter" />
+				javaType="java.util.ArrayList" typeHandler="com.igomall.handlers.OptionConverter" />
         <result column="property_index" property="propertyIndex" />
-        <association property="productCategory" select="net.shopec.dao.ProductCategoryDao.find" column="product_category_id"  javaType="net.shopec.entity.ProductCategory"/>
+        <association property="productCategory" select="com.igomall.dao.ProductCategoryDao.find" column="product_category_id" javaType="com.igomall.entity.ProductCategory"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -87,7 +87,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Attribute">
+	<insert id="save" parameterType="com.igomall.entity.Attribute">
    		INSERT INTO attribute(
 			id ,
 			created_date ,
@@ -103,20 +103,20 @@
 			#{entity.version}, 
 			#{entity.order}, 
 			#{entity.name}, 
-			#{entity.options, typeHandler=net.shopec.handlers.OptionConverter}, 
+			#{entity.options, typeHandler=com.igomall.handlers.OptionConverter},
 			#{entity.propertyIndex}, 
 			#{entity.productCategory.id}
 		)
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.Attribute">
+  	<update id="update" parameterType="com.igomall.entity.Attribute">
     	UPDATE attribute
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,
 			orders = #{entity.order},
 			`name` = #{entity.name},
-			`options` = #{entity.options, typeHandler=net.shopec.handlers.OptionConverter},
+			`options` = #{entity.options, typeHandler=com.igomall.handlers.OptionConverter},
 			property_index = #{entity.propertyIndex},
 			product_category_id = #{entity.productCategory.id}
 		WHERE

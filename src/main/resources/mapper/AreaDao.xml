@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.AreaDao">
+<mapper namespace="com.igomall.dao.AreaDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Area">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Area">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -13,13 +13,13 @@
         <result column="grade" property="grade" />
         <result column="name" property="name" />
         <result column="tree_path" property="treePath" />
-        <association property="parent" select="find" column="parent_id"  javaType="net.shopec.entity.Area" fetchType="lazy"/>
-        <collection property="children" select="findSet" column="{attributeValue=id}" ofType="net.shopec.entity.Area" fetchType="lazy"/>
-        <collection property="members" select="net.shopec.dao.MemberDao.findSet" column="{attributeName=area_id, attributeValue=id}" ofType="net.shopec.entity.Member" fetchType="lazy"/>
-        <collection property="receivers" select="net.shopec.dao.ReceiverDao.findSet" column="{attributeName=area_id, attributeValue=id}" ofType="net.shopec.entity.Receiver" fetchType="lazy"/>
-        <collection property="orders" select="net.shopec.dao.OrderDao.findSet" column="{attributeName=area_id, attributeValue=id}" ofType="net.shopec.entity.Order" fetchType="lazy"/>
-        <collection property="deliveryCenters" select="net.shopec.dao.DeliveryCenterDao.findSet" column="{attributeName=area_id, attributeValue=id}" ofType="net.shopec.entity.DeliveryCenter" fetchType="lazy"/>
-        <collection property="areaFreightConfigs" select="net.shopec.dao.AreaFreightConfigDao.findSet" column="{attributeName=area_id, attributeValue=id}" ofType="net.shopec.entity.AreaFreightConfig" fetchType="lazy"/>
+        <association property="parent" select="find" column="parent_id" javaType="com.igomall.entity.Area" fetchType="lazy"/>
+        <collection property="children" select="findSet" column="{attributeValue=id}" ofType="com.igomall.entity.Area" fetchType="lazy"/>
+        <collection property="members" select="com.igomall.dao.MemberDao.findSet" column="{attributeName=area_id, attributeValue=id}" ofType="com.igomall.entity.Member" fetchType="lazy"/>
+        <collection property="receivers" select="com.igomall.dao.ReceiverDao.findSet" column="{attributeName=area_id, attributeValue=id}" ofType="com.igomall.entity.Receiver" fetchType="lazy"/>
+        <collection property="orders" select="com.igomall.dao.OrderDao.findSet" column="{attributeName=area_id, attributeValue=id}" ofType="com.igomall.entity.Order" fetchType="lazy"/>
+        <collection property="deliveryCenters" select="com.igomall.dao.DeliveryCenterDao.findSet" column="{attributeName=area_id, attributeValue=id}" ofType="com.igomall.entity.DeliveryCenter" fetchType="lazy"/>
+        <collection property="areaFreightConfigs" select="com.igomall.dao.AreaFreightConfigDao.findSet" column="{attributeName=area_id, attributeValue=id}" ofType="com.igomall.entity.AreaFreightConfig" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -126,7 +126,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Area">
+	<insert id="save" parameterType="com.igomall.entity.Area">
 	   INSERT INTO area (
 			id ,
 			created_date ,
@@ -150,7 +150,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.Area">
+  	<update id="update" parameterType="com.igomall.entity.Area">
     	UPDATE area
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

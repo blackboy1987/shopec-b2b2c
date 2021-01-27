@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.CouponCodeDao">
+<mapper namespace="com.igomall.dao.CouponCodeDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.CouponCode">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.CouponCode">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -11,9 +11,9 @@
         <result column="code" property="code" />
         <result column="is_used" property="isUsed" />
         <result column="used_date" property="usedDate" />
-        <association property="coupon" select="net.shopec.dao.CouponDao.find" column="coupon_id" javaType="net.shopec.entity.Coupon" fetchType="lazy"/>
-       	<association property="member" select="net.shopec.dao.MemberDao.find" column="member_id" javaType="net.shopec.entity.Member" fetchType="lazy"/>
-       	<association property="order" select="net.shopec.dao.OrderDao.findByAttribute" column="{attributeName=coupon_code_id, attributeValue=id}" javaType="net.shopec.entity.Order" fetchType="lazy"/>
+        <association property="coupon" select="com.igomall.dao.CouponDao.find" column="coupon_id" javaType="com.igomall.entity.Coupon" fetchType="lazy"/>
+       	<association property="member" select="com.igomall.dao.MemberDao.find" column="member_id" javaType="com.igomall.entity.Member" fetchType="lazy"/>
+       	<association property="order" select="com.igomall.dao.OrderDao.findByAttribute" column="{attributeName=coupon_code_id, attributeValue=id}" javaType="com.igomall.entity.Order" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -103,7 +103,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.CouponCode">
+	<insert id="save" parameterType="com.igomall.entity.CouponCode">
     	INSERT INTO coupon_code(
 			id ,
 			created_date ,
@@ -126,7 +126,7 @@
   	</insert>
   
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.CouponCode">
+  	<update id="update" parameterType="com.igomall.entity.CouponCode">
     	UPDATE coupon_code
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

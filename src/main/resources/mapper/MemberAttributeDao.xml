@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.MemberAttributeDao">
+<mapper namespace="com.igomall.dao.MemberAttributeDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.MemberAttribute">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.MemberAttribute">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -13,7 +13,7 @@
         <result column="is_required" property="isRequired" />
         <result column="name" property="name" />
         <result column="options" property="options" jdbcType="LONGVARCHAR"
-				javaType="java.util.ArrayList" typeHandler="net.shopec.handlers.OptionConverter" />
+				javaType="java.util.ArrayList" typeHandler="com.igomall.handlers.OptionConverter" />
         <result column="pattern" property="pattern" />
         <result column="property_index" property="propertyIndex" />
         <result column="type" property="type" />
@@ -75,7 +75,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.MemberAttribute">
+	<insert id="save" parameterType="com.igomall.entity.MemberAttribute">
 	    INSERT INTO member_attribute(
 			id ,
 			created_date ,
@@ -99,11 +99,11 @@
 			#{entity.pattern}, 
 			#{entity.propertyIndex}, 
 			#{entity.type}, 
-			#{entity.options, typeHandler=net.shopec.handlers.OptionConverter})
+			#{entity.options, typeHandler=com.igomall.handlers.OptionConverter})
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.MemberAttribute">
+  	<update id="update" parameterType="com.igomall.entity.MemberAttribute">
 	   UPDATE member_attribute
 			SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,
@@ -112,7 +112,7 @@
 			is_required = #{entity.isRequired},
 			name = #{entity.name},
 			pattern = #{entity.pattern},
-			options = #{entity.options, typeHandler=net.shopec.handlers.OptionConverter}
+			options = #{entity.options, typeHandler=com.igomall.handlers.OptionConverter}
 		WHERE
 			`id` = #{entity.id}
 		AND version = #{entity.version}

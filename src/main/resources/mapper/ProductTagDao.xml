@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.ProductTagDao">
+<mapper namespace="com.igomall.dao.ProductTagDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.ProductTag">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.ProductTag">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -11,7 +11,7 @@
         <result column="orders" property="order" />
         <result column="memo" property="memo" />
         <result column="name" property="name" />
-        <collection property="products" select="net.shopec.dao.ProductDao.findSet" column="{attributeName=product_tag_id, attributeValue=id}" ofType="net.shopec.entity.Product" fetchType="lazy"/>
+        <collection property="products" select="com.igomall.dao.ProductDao.findSet" column="{attributeName=product_tag_id, attributeValue=id}" ofType="com.igomall.entity.Product" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -63,7 +63,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.ProductTag">
+	<insert id="save" parameterType="com.igomall.entity.ProductTag">
     	INSERT INTO product_tag(
 			id ,
 			created_date ,
@@ -82,7 +82,7 @@
   	</insert>
   	
   	<!-- 修改 -->
-  	<update id="update" parameterType="net.shopec.entity.ProductTag">
+  	<update id="update" parameterType="com.igomall.entity.ProductTag">
    		UPDATE product_tag
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

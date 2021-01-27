@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.BusinessDao">
+<mapper namespace="com.igomall.dao.BusinessDao">
 	
 	<!-- User查询映射结果 -->
-    <resultMap id="UserResultMap" type="net.shopec.entity.User">
+    <resultMap id="UserResultMap" type="com.igomall.entity.User">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -16,7 +16,7 @@
     </resultMap>
     
    <!-- 通用查询映射结果 -->
-   <resultMap id="BaseResultMap" type="net.shopec.entity.Business" extends="UserResultMap">
+   <resultMap id="BaseResultMap" type="com.igomall.entity.Business" extends="UserResultMap">
    		<result column="username" property="username" />
    		<result column="encoded_password" property="encodedPassword" />
         <result column="email" property="email" />
@@ -56,9 +56,9 @@
         <result column="attribute_value7" property="attributeValue7" />
         <result column="attribute_value8" property="attributeValue8" />
         <result column="attribute_value9" property="attributeValue9" />
-        <association property="store" select="net.shopec.dao.StoreDao.findByAttribute" column="{attributeName=business_id, attributeValue=id}" javaType="net.shopec.entity.Store" fetchType="lazy"/>
-        <collection property="businessCashs" select="net.shopec.dao.BusinessCashDao.findSet" column="{attributeName=business_id, attributeValue=id}" ofType="net.shopec.entity.BusinessCash" fetchType="lazy"/>
-        <collection property="businessDepositLogs" select="net.shopec.dao.BusinessDepositLogDao.findSet" column="{attributeName=business_id, attributeValue=id}" ofType="net.shopec.entity.BusinessDepositLog" fetchType="lazy"/>
+        <association property="store" select="com.igomall.dao.StoreDao.findByAttribute" column="{attributeName=business_id, attributeValue=id}" javaType="com.igomall.entity.Store" fetchType="lazy"/>
+        <collection property="businessCashs" select="com.igomall.dao.BusinessCashDao.findSet" column="{attributeName=business_id, attributeValue=id}" ofType="com.igomall.entity.BusinessCash" fetchType="lazy"/>
+        <collection property="businessDepositLogs" select="com.igomall.dao.BusinessDepositLogDao.findSet" column="{attributeName=business_id, attributeValue=id}" ofType="com.igomall.entity.BusinessDepositLog" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -212,7 +212,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Business">
+	<insert id="save" parameterType="com.igomall.entity.Business">
    		INSERT INTO users(
 			id ,
 			dtype, 
@@ -319,7 +319,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.Business">
+  	<update id="update" parameterType="com.igomall.entity.Business">
    		UPDATE users
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version},

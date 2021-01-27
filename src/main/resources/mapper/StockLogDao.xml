@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.StockLogDao">
+<mapper namespace="com.igomall.dao.StockLogDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.StockLog">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.StockLog">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -13,7 +13,7 @@
         <result column="out_quantity" property="outQuantity" />
         <result column="stock" property="stock" />
         <result column="type" property="type" />
-        <association property="sku" select="net.shopec.dao.SkuDao.find" column="sku_id" javaType="net.shopec.entity.Sku" fetchType="lazy"/>
+        <association property="sku" select="com.igomall.dao.SkuDao.find" column="sku_id" javaType="com.igomall.entity.Sku" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -77,7 +77,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.StockLog">
+	<insert id="save" parameterType="com.igomall.entity.StockLog">
     	INSERT INTO stock_log(
 			id ,
 			created_date ,

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.ProductDao">
+<mapper namespace="com.igomall.dao.ProductDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Product">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Product">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -47,16 +47,16 @@
         <result column="month_sales_date" property="monthSalesDate" />
         <result column="name" property="name" />
         <result column="parameter_values" property="parameterValues" jdbcType="LONGVARCHAR"
-				javaType="java.util.ArrayList" typeHandler="net.shopec.handlers.ParameterValueHandler"/>
+				javaType="java.util.ArrayList" typeHandler="com.igomall.handlers.ParameterValueHandler"/>
         <result column="price" property="price" />
         <result column="product_images" property="productImages" jdbcType="LONGVARCHAR"
-				javaType="java.util.ArrayList" typeHandler="net.shopec.handlers.ProductImageHandler" />
+				javaType="java.util.ArrayList" typeHandler="com.igomall.handlers.ProductImageHandler" />
         <result column="sales" property="sales" />
         <result column="score" property="score" />
         <result column="score_count" property="scoreCount" />
         <result column="sn" property="sn" />
         <result column="specification_items" property="specificationItems" jdbcType="LONGVARCHAR"
-				javaType="java.util.ArrayList" typeHandler="net.shopec.handlers.SpecificationItemConverter"/>
+				javaType="java.util.ArrayList" typeHandler="com.igomall.handlers.SpecificationItemConverter"/>
         <result column="total_score" property="totalScore" />
         <result column="type" property="type" />
         <result column="unit" property="unit" />
@@ -65,17 +65,17 @@
         <result column="week_sales" property="weekSales" />
         <result column="week_sales_date" property="weekSalesDate" />
         <result column="weight" property="weight" />
-        <association property="store" select="net.shopec.dao.StoreDao.find" column="store_id" javaType="net.shopec.entity.Store" fetchType="lazy"/>
-        <association property="productCategory" select="net.shopec.dao.ProductCategoryDao.find" column="product_category_id"  javaType="net.shopec.entity.ProductCategory" fetchType="lazy"/>
-        <association property="storeProductCategory" select="net.shopec.dao.StoreProductCategoryDao.find" column="store_product_category_id" javaType="net.shopec.entity.StoreProductCategory" fetchType="lazy"/>
-        <association property="brand" select="net.shopec.dao.BrandDao.find" column="brand_id"  javaType="net.shopec.entity.Brand" fetchType="lazy"/>
-        <collection property="promotions" select="net.shopec.dao.PromotionDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="net.shopec.entity.Promotion" />
-        <collection property="productTags" select="net.shopec.dao.ProductTagDao.findSet" column="{attributeValue=id}" ofType="net.shopec.entity.ProductTag" />
-        <collection property="storeProductTags" select="net.shopec.dao.StoreProductTagDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="net.shopec.entity.StoreProductTag" />
-        <collection property="reviews" select="net.shopec.dao.ReviewDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="net.shopec.entity.Review" />
-        <collection property="consultations" select="net.shopec.dao.ConsultationDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="net.shopec.entity.Consultation" />
-        <collection property="productFavorites" select="net.shopec.dao.ProductFavoriteDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="net.shopec.entity.ProductFavorite" />
-        <collection property="skus" select="net.shopec.dao.SkuDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="net.shopec.entity.Sku" />
+        <association property="store" select="com.igomall.dao.StoreDao.find" column="store_id" javaType="com.igomall.entity.Store" fetchType="lazy"/>
+        <association property="productCategory" select="com.igomall.dao.ProductCategoryDao.find" column="product_category_id" javaType="com.igomall.entity.ProductCategory" fetchType="lazy"/>
+        <association property="storeProductCategory" select="com.igomall.dao.StoreProductCategoryDao.find" column="store_product_category_id" javaType="com.igomall.entity.StoreProductCategory" fetchType="lazy"/>
+        <association property="brand" select="com.igomall.dao.BrandDao.find" column="brand_id" javaType="com.igomall.entity.Brand" fetchType="lazy"/>
+        <collection property="promotions" select="com.igomall.dao.PromotionDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="com.igomall.entity.Promotion" />
+        <collection property="productTags" select="com.igomall.dao.ProductTagDao.findSet" column="{attributeValue=id}" ofType="com.igomall.entity.ProductTag" />
+        <collection property="storeProductTags" select="com.igomall.dao.StoreProductTagDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="com.igomall.entity.StoreProductTag" />
+        <collection property="reviews" select="com.igomall.dao.ReviewDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="com.igomall.entity.Review" />
+        <collection property="consultations" select="com.igomall.dao.ConsultationDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="com.igomall.entity.Consultation" />
+        <collection property="productFavorites" select="com.igomall.dao.ProductFavoriteDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="com.igomall.entity.ProductFavorite" />
+        <collection property="skus" select="com.igomall.dao.SkuDao.findSet" column="{attributeName=product_id, attributeValue=id}" ofType="com.igomall.entity.Sku" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -104,7 +104,7 @@
 	</select>
 	
 	<!-- 查找实体对象集合 -->
-	<select id="findSet" resultType="net.shopec.entity.Product">
+	<select id="findSet" resultType="com.igomall.entity.Product">
 		SELECT
 			<include refid="Base_Column_List"></include>
 		FROM
@@ -560,7 +560,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Product">
+	<insert id="save" parameterType="com.igomall.entity.Product">
     	INSERT INTO product(
 			id ,
 			created_date ,
@@ -664,14 +664,14 @@
 			#{entity.monthSales}, 
 			#{entity.monthSalesDate}, 
 			#{entity.name}, 
-			#{entity.parameterValues, typeHandler=net.shopec.handlers.ParameterValueHandler}, 
+			#{entity.parameterValues, typeHandler=ParameterValueHandler},
 			#{entity.price}, 
-			#{entity.productImages, typeHandler=net.shopec.handlers.ProductImageHandler}, 
+			#{entity.productImages, typeHandler=ProductImageHandler},
 			#{entity.sales}, 
 			#{entity.score}, 
 			#{entity.scoreCount}, 
 			#{entity.sn}, 
-			#{entity.specificationItems, typeHandler=net.shopec.handlers.SpecificationItemConverter}, 
+			#{entity.specificationItems, typeHandler=SpecificationItemConverter},
 			#{entity.totalScore}, 
 			#{entity.type}, 
 			#{entity.unit}, 
@@ -714,7 +714,7 @@
   	</insert>
   	
 	<!-- 更新 -->
-	<update id="update" parameterType="net.shopec.entity.Product">
+	<update id="update" parameterType="com.igomall.entity.Product">
     	UPDATE product
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,
@@ -755,14 +755,14 @@
 			month_sales = #{entity.monthSales},
 			month_sales_date = #{entity.monthSalesDate},
 			`name` = #{entity.name},
-			parameter_values = #{entity.parameterValues, typeHandler=net.shopec.handlers.ParameterValueHandler},
+			parameter_values = #{entity.parameterValues, typeHandler=ParameterValueHandler},
 			price = #{entity.price},
-			product_images = #{entity.productImages, typeHandler=net.shopec.handlers.ProductImageHandler},
+			product_images = #{entity.productImages, typeHandler=ProductImageHandler},
 			sales = #{entity.sales},
 			score = #{entity.score},
 			score_count = #{entity.scoreCount},
 			sn = #{entity.sn},
-			specification_items = #{entity.specificationItems, typeHandler=net.shopec.handlers.SpecificationItemConverter},
+			specification_items = #{entity.specificationItems, typeHandler=SpecificationItemConverter},
 			total_score = #{entity.totalScore},
 			`type` = #{entity.type},
 			unit = #{entity.unit},

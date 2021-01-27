@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.PaymentMethodDao">
+<mapper namespace="com.igomall.dao.PaymentMethodDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.PaymentMethod">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.PaymentMethod">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -16,8 +16,8 @@
         <result column="name" property="name" />
         <result column="timeout" property="timeout" />
         <result column="type" property="type" />
-        <collection property="shippingMethods" select="net.shopec.dao.ShippingMethodDao.findSet" column="{attributeName=payment_method_id, attributeValue=id}" ofType="net.shopec.entity.ShippingMethod" fetchType="lazy"/>
-        <collection property="orders" select="net.shopec.dao.OrderDao.findSet" column="{attributeName=payment_method_id, attributeValue=id}" ofType="net.shopec.entity.Order" fetchType="lazy"/>
+        <collection property="shippingMethods" select="com.igomall.dao.ShippingMethodDao.findSet" column="{attributeName=payment_method_id, attributeValue=id}" ofType="com.igomall.entity.ShippingMethod" fetchType="lazy"/>
+        <collection property="orders" select="com.igomall.dao.OrderDao.findSet" column="{attributeName=payment_method_id, attributeValue=id}" ofType="com.igomall.entity.Order" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -73,7 +73,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.PaymentMethod">
+	<insert id="save" parameterType="com.igomall.entity.PaymentMethod">
    		INSERT INTO payment_method(
 			id ,
 			created_date ,
@@ -102,7 +102,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.PaymentMethod">
+  	<update id="update" parameterType="com.igomall.entity.PaymentMethod">
    		UPDATE payment_method
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

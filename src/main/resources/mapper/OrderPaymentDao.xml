@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.OrderPaymentDao">
+<mapper namespace="com.igomall.dao.OrderPaymentDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.OrderPayment">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.OrderPayment">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -17,7 +17,7 @@
         <result column="payer" property="payer" />
         <result column="payment_method" property="paymentMethod" />
         <result column="sn" property="sn" />
-        <association property="order" select="net.shopec.dao.OrderDao.find" column="orders" javaType="net.shopec.entity.Order" fetchType="lazy"/>
+        <association property="order" select="com.igomall.dao.OrderDao.find" column="orders" javaType="com.igomall.entity.Order" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -62,7 +62,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.OrderPayment">
+	<insert id="save" parameterType="com.igomall.entity.OrderPayment">
    		INSERT INTO order_payment(
 			id ,
 			created_date ,

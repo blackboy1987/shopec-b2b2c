@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.DeliveryCenterDao">
+<mapper namespace="com.igomall.dao.DeliveryCenterDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.DeliveryCenter">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.DeliveryCenter">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -17,8 +17,8 @@
         <result column="name" property="name" />
         <result column="phone" property="phone" />
         <result column="zip_code" property="zipCode" />
-        <association property="store" select="net.shopec.dao.StoreDao.find" column="store_id" javaType="net.shopec.entity.Store" fetchType="lazy"/>
-       	<association property="area" select="net.shopec.dao.AreaDao.find" column="area_id" javaType="net.shopec.entity.Area" fetchType="lazy"/>
+        <association property="store" select="com.igomall.dao.StoreDao.find" column="store_id" javaType="com.igomall.entity.Store" fetchType="lazy"/>
+       	<association property="area" select="com.igomall.dao.AreaDao.find" column="area_id" javaType="com.igomall.entity.Area" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -108,7 +108,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.DeliveryCenter">
+	<insert id="save" parameterType="com.igomall.entity.DeliveryCenter">
     	INSERT INTO delivery_center(
 			id ,
 			created_date ,
@@ -143,7 +143,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.DeliveryCenter">
+  	<update id="update" parameterType="com.igomall.entity.DeliveryCenter">
    		UPDATE delivery_center
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version},

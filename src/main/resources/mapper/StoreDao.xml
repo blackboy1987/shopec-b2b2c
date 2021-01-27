@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.StoreDao">
+<mapper namespace="com.igomall.dao.StoreDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.Store">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.Store">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -22,32 +22,32 @@
         <result column="status" property="status" />
         <result column="type" property="type" />
         <result column="zip_code" property="zipCode" />
-       	<association property="business" select="net.shopec.dao.BusinessDao.find" column="business_id" javaType="net.shopec.entity.Business" fetchType="lazy"/>
-        <association property="storeRank" select="net.shopec.dao.StoreRankDao.find" column="store_rank_id" javaType="net.shopec.entity.StoreRank" fetchType="lazy"/>
-        <association property="storeCategory" select="net.shopec.dao.StoreCategoryDao.find" column="store_category_id" javaType="net.shopec.entity.StoreCategory"  fetchType="lazy"/>
-        <association property="aftersalesSetting" select="net.shopec.dao.AftersalesSettingDao.findByAttribute" column="{attributeName=store_id, attributeValue=id}" javaType="net.shopec.entity.AftersalesSetting"  fetchType="lazy"/>
-        <collection property="aftersales" select="net.shopec.dao.AftersalesDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.Aftersales"  fetchType="lazy"/>
-        <collection property="storeAdImages" select="net.shopec.dao.StoreAdImageDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.StoreAdImage"  fetchType="lazy"/>
-        <collection property="instantMessages" select="net.shopec.dao.InstantMessageDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.InstantMessage"  fetchType="lazy"/>
-        <collection property="storeProductCategories" select="net.shopec.dao.StoreProductCategoryDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.StoreProductCategory" fetchType="lazy"/>
-        <collection property="productCategories" select="net.shopec.dao.ProductCategoryDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.ProductCategory" fetchType="lazy"/>
-        <collection property="categoryApplications" select="net.shopec.dao.CategoryApplicationDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.CategoryApplication" fetchType="lazy"/>
-        <collection property="storeProductTags" select="net.shopec.dao.StoreProductTagDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.StoreProductTag" fetchType="lazy"/>
-        <collection property="products" select="net.shopec.dao.ProductDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.Product" fetchType="lazy"/>
-        <collection property="promotions" select="net.shopec.dao.PromotionDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.Promotion" fetchType="lazy"/>
-        <collection property="coupons" select="net.shopec.dao.CouponDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.Coupon" fetchType="lazy"/>
-        <collection property="storePluginStatus" select="net.shopec.dao.StorePluginStatusDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.StorePluginStatus" fetchType="lazy"/>
-        <collection property="orders" select="net.shopec.dao.OrderDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.Order" fetchType="lazy"/>
-        <collection property="storeFavorites" select="net.shopec.dao.StoreFavoriteDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.StoreFavorite" fetchType="lazy"/>
-        <collection property="deliveryTemplates" select="net.shopec.dao.DeliveryTemplateDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.DeliveryTemplate" fetchType="lazy"/>
-        <collection property="deliveryCenters" select="net.shopec.dao.DeliveryCenterDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.DeliveryCenter" fetchType="lazy"/>
-        <collection property="defaultFreightConfigs" select="net.shopec.dao.DefaultFreightConfigDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.DefaultFreightConfig" fetchType="lazy"/>
-        <collection property="areaFreightConfigs" select="net.shopec.dao.AreaFreightConfigDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.AreaFreightConfig" fetchType="lazy"/>
-        <collection property="svcs" select="net.shopec.dao.SvcDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.Svc" fetchType="lazy"/>
-        <collection property="paymentTransactions" select="net.shopec.dao.PaymentTransactionDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.PaymentTransaction" fetchType="lazy"/>
-        <collection property="consultations" select="net.shopec.dao.ConsultationDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.Consultation" fetchType="lazy"/>
-        <collection property="reviews" select="net.shopec.dao.ReviewDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.Review" fetchType="lazy"/>
-        <collection property="statistics" select="net.shopec.dao.StatisticDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="net.shopec.entity.Statistic" fetchType="lazy"/>
+       	<association property="business" select="com.igomall.dao.BusinessDao.find" column="business_id" javaType="com.igomall.entity.Business" fetchType="lazy"/>
+        <association property="storeRank" select="com.igomall.dao.StoreRankDao.find" column="store_rank_id" javaType="com.igomall.entity.StoreRank" fetchType="lazy"/>
+        <association property="storeCategory" select="com.igomall.dao.StoreCategoryDao.find" column="store_category_id" javaType="com.igomall.entity.StoreCategory" fetchType="lazy"/>
+        <association property="aftersalesSetting" select="com.igomall.dao.AftersalesSettingDao.findByAttribute" column="{attributeName=store_id, attributeValue=id}" javaType="com.igomall.entity.AftersalesSetting" fetchType="lazy"/>
+        <collection property="aftersales" select="com.igomall.dao.AftersalesDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.Aftersales" fetchType="lazy"/>
+        <collection property="storeAdImages" select="com.igomall.dao.StoreAdImageDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.StoreAdImage" fetchType="lazy"/>
+        <collection property="instantMessages" select="com.igomall.dao.InstantMessageDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.InstantMessage" fetchType="lazy"/>
+        <collection property="storeProductCategories" select="com.igomall.dao.StoreProductCategoryDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.StoreProductCategory" fetchType="lazy"/>
+        <collection property="productCategories" select="com.igomall.dao.ProductCategoryDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.ProductCategory" fetchType="lazy"/>
+        <collection property="categoryApplications" select="com.igomall.dao.CategoryApplicationDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.CategoryApplication" fetchType="lazy"/>
+        <collection property="storeProductTags" select="com.igomall.dao.StoreProductTagDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.StoreProductTag" fetchType="lazy"/>
+        <collection property="products" select="com.igomall.dao.ProductDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.Product" fetchType="lazy"/>
+        <collection property="promotions" select="com.igomall.dao.PromotionDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.Promotion" fetchType="lazy"/>
+        <collection property="coupons" select="com.igomall.dao.CouponDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.Coupon" fetchType="lazy"/>
+        <collection property="storePluginStatus" select="com.igomall.dao.StorePluginStatusDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.StorePluginStatus" fetchType="lazy"/>
+        <collection property="orders" select="com.igomall.dao.OrderDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.Order" fetchType="lazy"/>
+        <collection property="storeFavorites" select="com.igomall.dao.StoreFavoriteDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.StoreFavorite" fetchType="lazy"/>
+        <collection property="deliveryTemplates" select="com.igomall.dao.DeliveryTemplateDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.DeliveryTemplate" fetchType="lazy"/>
+        <collection property="deliveryCenters" select="com.igomall.dao.DeliveryCenterDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.DeliveryCenter" fetchType="lazy"/>
+        <collection property="defaultFreightConfigs" select="com.igomall.dao.DefaultFreightConfigDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.DefaultFreightConfig" fetchType="lazy"/>
+        <collection property="areaFreightConfigs" select="com.igomall.dao.AreaFreightConfigDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.AreaFreightConfig" fetchType="lazy"/>
+        <collection property="svcs" select="com.igomall.dao.SvcDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.Svc" fetchType="lazy"/>
+        <collection property="paymentTransactions" select="com.igomall.dao.PaymentTransactionDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.PaymentTransaction" fetchType="lazy"/>
+        <collection property="consultations" select="com.igomall.dao.ConsultationDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.Consultation" fetchType="lazy"/>
+        <collection property="reviews" select="com.igomall.dao.ReviewDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.Review" fetchType="lazy"/>
+        <collection property="statistics" select="com.igomall.dao.StatisticDao.findSet" column="{attributeName=store_id, attributeValue=id}" ofType="com.igomall.entity.Statistic" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -87,7 +87,7 @@
 	</select>
 	
 	<!-- 查找所有实体对象集合 -->
-	<select id="findAll" resultType="net.shopec.entity.Store">
+	<select id="findAll" resultType="com.igomall.entity.Store">
 		SELECT
 			<include refid="Base_Column_List"></include>
 		FROM
@@ -238,7 +238,7 @@
 	</select>
 	
 	<!-- 查找经营分类 -->
-	<select id="findProductCategoryList" resultType="net.shopec.entity.ProductCategory">
+	<select id="findProductCategoryList" resultType="com.igomall.entity.ProductCategory">
 		SELECT
 			productCategory.*
 		FROM
@@ -255,7 +255,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.Store">
+	<insert id="save" parameterType="com.igomall.entity.Store">
     	INSERT INTO store(
 			id ,
 			created_date ,
@@ -302,7 +302,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.Store">
+  	<update id="update" parameterType="com.igomall.entity.Store">
    		UPDATE store
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,

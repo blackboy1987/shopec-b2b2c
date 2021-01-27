@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.UserDao">
+<mapper namespace="com.igomall.dao.UserDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.User">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.User">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -13,15 +13,15 @@
         <result column="last_login_date" property="lastLoginDate" />
         <result column="last_login_ip" property="lastLoginIp" />
         <result column="lock_date" property="lockDate" />
-        <collection property="socialUsers" select="net.shopec.dao.SocialUserDao.findSet" column="{attributeName=user_id, attributeValue=id}" ofType="net.shopec.entity.SocialUser" fetchType="lazy"/>
-        <collection property="paymentTransactions" select="net.shopec.dao.PaymentTransactionDao.findSet" column="{attributeName=user_id, attributeValue=id}" ofType="net.shopec.entity.PaymentTransaction" fetchType="lazy"/>
-        <collection property="auditLogs" select="net.shopec.dao.AuditLogDao.findSet" column="{attributeName=user_id, attributeValue=id}" ofType="net.shopec.entity.AuditLog" fetchType="lazy"/>
-        <collection property="fromMessages" select="net.shopec.dao.MessageDao.findSet" column="{attributeName=from_user_id, attributeValue=id}" ofType="net.shopec.entity.Message" fetchType="lazy"/>
-        <collection property="toMessages" select="net.shopec.dao.MessageDao.findSet" column="{attributeName=to_user_id, attributeValue=id}" ofType="net.shopec.entity.Message" fetchType="lazy"/>
-        <collection property="user1MessageGroups" select="net.shopec.dao.MessageGroupDao.findSet" column="{attributeName=user1_id, attributeValue=id}" ofType="net.shopec.entity.MessageGroup" fetchType="lazy"/>
-        <collection property="user2MessageGroups" select="net.shopec.dao.MessageGroupDao.findSet" column="{attributeName=user2_id, attributeValue=id}" ofType="net.shopec.entity.MessageGroup" fetchType="lazy"/>
+        <collection property="socialUsers" select="com.igomall.dao.SocialUserDao.findSet" column="{attributeName=user_id, attributeValue=id}" ofType="com.igomall.entity.SocialUser" fetchType="lazy"/>
+        <collection property="paymentTransactions" select="com.igomall.dao.PaymentTransactionDao.findSet" column="{attributeName=user_id, attributeValue=id}" ofType="com.igomall.entity.PaymentTransaction" fetchType="lazy"/>
+        <collection property="auditLogs" select="com.igomall.dao.AuditLogDao.findSet" column="{attributeName=user_id, attributeValue=id}" ofType="com.igomall.entity.AuditLog" fetchType="lazy"/>
+        <collection property="fromMessages" select="com.igomall.dao.MessageDao.findSet" column="{attributeName=from_user_id, attributeValue=id}" ofType="com.igomall.entity.Message" fetchType="lazy"/>
+        <collection property="toMessages" select="com.igomall.dao.MessageDao.findSet" column="{attributeName=to_user_id, attributeValue=id}" ofType="com.igomall.entity.Message" fetchType="lazy"/>
+        <collection property="user1MessageGroups" select="com.igomall.dao.MessageGroupDao.findSet" column="{attributeName=user1_id, attributeValue=id}" ofType="com.igomall.entity.MessageGroup" fetchType="lazy"/>
+        <collection property="user2MessageGroups" select="com.igomall.dao.MessageGroupDao.findSet" column="{attributeName=user2_id, attributeValue=id}" ofType="com.igomall.entity.MessageGroup" fetchType="lazy"/>
         <discriminator javaType="string" column="dtype">
-        	<case value="Business" resultType="net.shopec.entity.Business">
+        	<case value="Business" resultType="com.igomall.entity.Business">
         		<result column="username" property="username" />
 		   		<result column="encoded_password" property="encodedPassword" />
 		        <result column="email" property="email" />
@@ -61,9 +61,9 @@
 		        <result column="attribute_value7" property="attributeValue7" />
 		        <result column="attribute_value8" property="attributeValue8" />
 		        <result column="attribute_value9" property="attributeValue9" />
-		        <association property="store" select="net.shopec.dao.StoreDao.findByAttribute" column="{attributeName=business_id, attributeValue=id}" javaType="net.shopec.entity.Store" fetchType="lazy"/>
+		        <association property="store" select="com.igomall.dao.StoreDao.findByAttribute" column="{attributeName=business_id, attributeValue=id}" javaType="com.igomall.entity.Store" fetchType="lazy"/>
         	</case>
-        	<case value="Member" resultType="net.shopec.entity.Member">
+        	<case value="Member" resultType="com.igomall.entity.Member">
         		<result column="username" property="username" />
 		    	<result column="encoded_password" property="encodedPassword" />
 		    	<result column="email" property="email" />
@@ -89,30 +89,30 @@
 		        <result column="attribute_value8" property="attributeValue8" />
 		        <result column="attribute_value9" property="attributeValue9" />
 		        <result column="avatar_url" property="avatarUrl" />
-		        <association property="area" select="net.shopec.dao.AreaDao.find" column="area_id" javaType="net.shopec.entity.Area" fetchType="lazy"/>
-		        <association property="memberRank" select="net.shopec.dao.MemberRankDao.find" column="member_rank_id" javaType="net.shopec.entity.MemberRank" fetchType="lazy"/>
-		        <association property="distributor" select="net.shopec.dao.DistributorDao.findByAttribute" column="{attributeName=member_id, attributeValue=id}" javaType="net.shopec.entity.Distributor" fetchType="lazy"/>
-		        <association property="cart" select="net.shopec.dao.CartDao.findByAttribute" column="{attributeName=member_id, attributeValue=id}" javaType="net.shopec.entity.Cart" fetchType="lazy"/>
-		        <collection property="orders" select="net.shopec.dao.OrderDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.Order" fetchType="lazy"/>
-		        <collection property="memberDepositLogs" select="net.shopec.dao.MemberDepositLogDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.MemberDepositLog" fetchType="lazy"/>
-		        <collection property="couponCodes" select="net.shopec.dao.CouponCodeDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.CouponCode" fetchType="lazy"/>
-		        <collection property="receivers" select="net.shopec.dao.ReceiverDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.Receiver" fetchType="lazy"/>
-		        <collection property="reviews" select="net.shopec.dao.ReviewDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.Review" fetchType="lazy"/>
-		        <collection property="consultations" select="net.shopec.dao.ConsultationDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.Consultation" fetchType="lazy"/>
-		        <collection property="productFavorites" select="net.shopec.dao.ProductFavoriteDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.ProductFavorite" fetchType="lazy"/>
-		        <collection property="storeFavorites" select="net.shopec.dao.StoreFavoriteDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.StoreFavorite" fetchType="lazy"/>
-		        <collection property="productNotifies" select="net.shopec.dao.ProductNotifyDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.ProductNotify" fetchType="lazy"/>
-		        <collection property="pointLogs" select="net.shopec.dao.PointLogDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.PointLog" fetchType="lazy"/>
-		        <collection property="aftersales" select="net.shopec.dao.AftersalesDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="net.shopec.entity.Aftersales" fetchType="lazy"/>
+		        <association property="area" select="com.igomall.dao.AreaDao.find" column="area_id" javaType="com.igomall.entity.Area" fetchType="lazy"/>
+		        <association property="memberRank" select="com.igomall.dao.MemberRankDao.find" column="member_rank_id" javaType="com.igomall.entity.MemberRank" fetchType="lazy"/>
+		        <association property="distributor" select="com.igomall.dao.DistributorDao.findByAttribute" column="{attributeName=member_id, attributeValue=id}" javaType="com.igomall.entity.Distributor" fetchType="lazy"/>
+		        <association property="cart" select="com.igomall.dao.CartDao.findByAttribute" column="{attributeName=member_id, attributeValue=id}" javaType="com.igomall.entity.Cart" fetchType="lazy"/>
+		        <collection property="orders" select="com.igomall.dao.OrderDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.Order" fetchType="lazy"/>
+		        <collection property="memberDepositLogs" select="com.igomall.dao.MemberDepositLogDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.MemberDepositLog" fetchType="lazy"/>
+		        <collection property="couponCodes" select="com.igomall.dao.CouponCodeDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.CouponCode" fetchType="lazy"/>
+		        <collection property="receivers" select="com.igomall.dao.ReceiverDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.Receiver" fetchType="lazy"/>
+		        <collection property="reviews" select="com.igomall.dao.ReviewDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.Review" fetchType="lazy"/>
+		        <collection property="consultations" select="com.igomall.dao.ConsultationDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.Consultation" fetchType="lazy"/>
+		        <collection property="productFavorites" select="com.igomall.dao.ProductFavoriteDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.ProductFavorite" fetchType="lazy"/>
+		        <collection property="storeFavorites" select="com.igomall.dao.StoreFavoriteDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.StoreFavorite" fetchType="lazy"/>
+		        <collection property="productNotifies" select="com.igomall.dao.ProductNotifyDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.ProductNotify" fetchType="lazy"/>
+		        <collection property="pointLogs" select="com.igomall.dao.PointLogDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.PointLog" fetchType="lazy"/>
+		        <collection property="aftersales" select="com.igomall.dao.AftersalesDao.findSet" column="{attributeName=member_id, attributeValue=id}" ofType="com.igomall.entity.Aftersales" fetchType="lazy"/>
         	</case>
-        	<case value="Admin" resultType="net.shopec.entity.Admin">
+        	<case value="Admin" resultType="com.igomall.entity.Admin">
         		<result column="username" property="username" />
 		        <result column="encoded_password" property="encodedPassword" />
 		        <result column="email" property="email" />
 		        <result column="mobile" property="mobile" />
 		        <result column="name" property="name" />
 		        <result column="department" property="department" />
-		        <collection property="roles" select="net.shopec.dao.RoleDao.findSet" column="{attributeValue=id}" ofType="net.shopec.entity.Role" fetchType="lazy" />
+		        <collection property="roles" select="com.igomall.dao.RoleDao.findSet" column="{attributeValue=id}" ofType="com.igomall.entity.Role" fetchType="lazy" />
         	</case>
         </discriminator>
     </resultMap>

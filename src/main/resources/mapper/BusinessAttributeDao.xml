@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.BusinessAttributeDao">
+<mapper namespace="com.igomall.dao.BusinessAttributeDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.BusinessAttribute">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.BusinessAttribute">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -13,7 +13,7 @@
         <result column="is_required" property="isRequired" />
         <result column="name" property="name" />
         <result column="options" property="options" jdbcType="LONGVARCHAR"
-				javaType="java.util.ArrayList" typeHandler="net.shopec.handlers.OptionConverter"/>
+				javaType="java.util.ArrayList" typeHandler="com.igomall.handlers.OptionConverter"/>
         <result column="pattern" property="pattern" />
         <result column="property_index" property="propertyIndex" />
         <result column="type" property="type" />
@@ -78,7 +78,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.BusinessAttribute">
+	<insert id="save" parameterType="com.igomall.entity.BusinessAttribute">
    		INSERT INTO business_attribute(
 			id ,
 			created_date ,
@@ -99,7 +99,7 @@
 			#{entity.isEnabled}, 
 			#{entity.isRequired}, 
 			#{entity.name}, 
-			#{entity.options, typeHandler=net.shopec.handlers.OptionConverter}, 
+			#{entity.options, typeHandler=com.igomall.handlers.OptionConverter},
 			#{entity.pattern}, 
 			#{entity.propertyIndex}, 
 			#{entity.type}
@@ -107,7 +107,7 @@
   	</insert>
   	
   	<!-- 更新 -->
-  	<update id="update" parameterType="net.shopec.entity.BusinessAttribute">
+  	<update id="update" parameterType="com.igomall.entity.BusinessAttribute">
    		UPDATE business_attribute
 		SET last_modified_date = #{entity.lastModifiedDate},
 			version = #{entity.version} + 1,
@@ -115,7 +115,7 @@
 			is_enabled = #{entity.isEnabled},
 			is_required = #{entity.isRequired},
 			`name` = #{entity.name},
-			`options` = #{entity.options, typeHandler=net.shopec.handlers.OptionConverter},
+			`options` = #{entity.options, typeHandler=com.igomall.handlers.OptionConverter},
 			pattern = #{entity.pattern},
 			property_index = #{entity.propertyIndex}
 		WHERE

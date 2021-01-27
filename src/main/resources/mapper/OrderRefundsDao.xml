@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.OrderRefundsDao">
+<mapper namespace="com.igomall.dao.OrderRefundsDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.OrderRefunds">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.OrderRefunds">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
@@ -16,7 +16,7 @@
         <result column="payee" property="payee" />
         <result column="payment_method" property="paymentMethod" />
         <result column="sn" property="sn" />
-        <association property="order" select="net.shopec.dao.OrderDao.find" column="orders" javaType="net.shopec.entity.Order" fetchType="lazy"/>
+        <association property="order" select="com.igomall.dao.OrderDao.find" column="orders" javaType="com.igomall.entity.Order" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -61,7 +61,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="save" parameterType="net.shopec.entity.OrderRefunds">
+	<insert id="save" parameterType="com.igomall.entity.OrderRefunds">
     	INSERT INTO order_refunds(
 			id ,
 			created_date ,

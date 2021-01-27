@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.shopec.dao.AftersalesItemDao">
+<mapper namespace="com.igomall.dao.AftersalesItemDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="net.shopec.entity.AftersalesItem">
+    <resultMap id="BaseResultMap" type="com.igomall.entity.AftersalesItem">
 	    <result column="id" property="id" />
 	    <result column="version" property="version" />
         <result column="created_date" property="createdDate" />
         <result column="last_modified_date" property="lastModifiedDate" />
         <result column="quantity" property="quantity" />
-        <association property="aftersales" select="net.shopec.dao.AftersalesDao.find" column="aftersales_id" javaType="net.shopec.entity.Aftersales" fetchType="lazy"/>
-        <association property="orderItem" select="net.shopec.dao.OrderItemDao.find" column="orderItem_id" javaType="net.shopec.entity.OrderItem" fetchType="lazy"/>
+        <association property="aftersales" select="com.igomall.dao.AftersalesDao.find" column="aftersales_id" javaType="com.igomall.entity.Aftersales" fetchType="lazy"/>
+        <association property="orderItem" select="com.igomall.dao.OrderItemDao.find" column="orderItem_id" javaType="com.igomall.entity.OrderItem" fetchType="lazy"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -31,7 +31,7 @@
 	</select>
 	
 	<!-- 保存 -->
-	<insert id="saveBatch" parameterType="net.shopec.entity.AftersalesItem">
+	<insert id="saveBatch" parameterType="com.igomall.entity.AftersalesItem">
     	INSERT INTO aftersales_item(
 			id ,
 			created_date ,

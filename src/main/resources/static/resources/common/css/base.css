@@ -10,8 +10,8 @@ html {
 }
 
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 }
 
 a {
@@ -424,7 +424,7 @@ ol, ul {
 
 .btn-default:hover {
 	color: #49a9ee;
-	box-shadow: 0px 0px 8px rgba(102, 175, 233, 0.3);
+	box-shadow: 0 0 8px rgba(102, 175, 233, 0.3);
 	border-color: #49a9ee;
 	background-color: #ffffff;
 }
@@ -432,14 +432,14 @@ ol, ul {
 .btn-default:focus, .btn-default.focus {
 	color: #49a9ee;
 	outline: none;
-	box-shadow: 0px 0px 0px 2px rgba(16, 142, 233, 0.1);
+	box-shadow: 0 0 0 2px rgba(16, 142, 233, 0.1);
 	border-color: #49a9ee;
 	background-color: #ffffff;
 }
 
 .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
 	color: #49a9ee;
-	box-shadow: 0px 0px 0px 2px rgba(16, 142, 233, 0.1);
+	box-shadow: 0 0 0 2px rgba(16, 142, 233, 0.1);
 	border-color: #49a9ee;
 	background-color: #ffffff;
 }
@@ -447,7 +447,7 @@ ol, ul {
 .btn-default:active:hover, .btn-default.active:hover, .open > .dropdown-toggle.btn-default:hover, .btn-default:active:focus, .btn-default.active:focus, .open > .dropdown-toggle.btn-default:focus, .btn-default:active.focus, .btn-default.active.focus, .open > .dropdown-toggle.btn-default.focus {
 	color: #49a9ee;
 	outline: none;
-	box-shadow: 0px 0px 0px 2px rgba(16, 142, 233, 0.1);
+	box-shadow: 0 0 0 2px rgba(16, 142, 233, 0.1);
 	border-color: #49a9ee;
 	background-color: #fefefe;
 }
@@ -533,7 +533,7 @@ ol, ul {
 	-webkit-animation: btnClickedEffect 0.3s ease-out forwards;
 	animation: btnClickedEffect 0.3s ease-out forwards;
 	border-radius: inherit;
-	border: 0px solid #108ee9;
+	border: 0 solid #108ee9;
 }
 
 .btn-before-submit:disabled {
@@ -579,7 +579,7 @@ ol, ul {
 }
 
 .form-group .help-block, td .help-block {
-	margin: 1px 0px;
+	margin: 1px 0;
 	color: #ff4949;
 }
 
@@ -590,7 +590,7 @@ input.form-control, textarea.form-control {
 }
 
 input.form-control:hover, textarea.form-control:hover {
-	box-shadow: 0px 0px 8px rgba(102, 175, 233, 0.3);
+	box-shadow: 0 0 8px rgba(102, 175, 233, 0.3);
 	border-color: #49a9ee;
 }
 
@@ -599,7 +599,7 @@ input.form-control:active, textarea.form-control:active {
 }
 
 input.form-control:focus, textarea.form-control:focus {
-	box-shadow: 0px 0px 0px 2px rgba(16, 142, 233, 0.1);
+	box-shadow: 0 0 0 2px rgba(16, 142, 233, 0.1);
 	border-color: #49a9ee;
 }
 
@@ -659,24 +659,24 @@ input.form-control:disabled, textarea.form-control:disabled {
 }
 
 .panel-body > .list-group:last-child, .tab-pane > .list-group:last-child {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .panel-body > .list-group > .list-group-item, .tab-pane > .list-group > .list-group-item {
-	padding-right: 0px;
-	padding-left: 0px;
-	border-radius: 0px;
+	padding-right: 0;
+	padding-left: 0;
+	border-radius: 0;
 	border-right: none;
 	border-left: none;
 }
 
 .panel-body > .list-group > .list-group-item:first-child, .tab-pane > .list-group > .list-group-item:first-child {
-	padding-top: 0px;
+	padding-top: 0;
 	border-top: none;
 }
 
 .panel-body > .list-group > .list-group-item:last-child, .tab-pane > .list-group > .list-group-item:last-child {
-	padding-bottom: 0px;
+	padding-bottom: 0;
 	border-bottom: none;
 }
 
@@ -745,7 +745,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 .dropdown-menu {
 	-webkit-animation: dropdownMenuEffect 0.3s;
 	animation: dropdownMenuEffect 0.3s;
-	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 	border-color: #d8d8d8;
 }
 
@@ -847,7 +847,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 
 .panel-body > .table:last-child, .panel-body > .table-responsive > .table:last-child {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 /* ---------- pagination ---------- */
@@ -879,7 +879,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	max-width: 500px;
 	text-align: left;
 	word-break: break-all;
-	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -986,14 +986,14 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	min-width: 280px;
 	height: 40px;
 	line-height: 40px;
-	padding: 0px 10px 0px 50px;
+	padding: 0 10px 0 50px;
 	color: #666666;
 	font-size: 14px;
 	white-space: nowrap;
 	-webkit-animation: bootstrapGrowlEffect 0.5s;
 	animation: bootstrapGrowlEffect 0.5s;
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12), 0px 0px 6px rgba(0, 0, 0, 0.04);
-	border-radius: 0px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+	border-radius: 0;
 	border-color: #dddddd;
 	background-color: #ffffff;
 }
@@ -1065,7 +1065,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 
 /* ---------- awesome-bootstrap-checkbox ---------- */
 .checkbox>label, .radio>label {
-	padding-left: 0px;
+	padding-left: 0;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -1080,7 +1080,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 
 .checkbox input[type="checkbox"]:hover + label:before, .radio input[type="radio"]:hover + label:before {
-	box-shadow: 0px 0px 8px rgba(102, 175, 233, 0.3);
+	box-shadow: 0 0 8px rgba(102, 175, 233, 0.3);
 	border-color: #66afe9;
 }
 
@@ -1098,7 +1098,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 .checkbox>label:after {
 	width: 15px;
 	height: 15px;
-	padding: 0px;
+	padding: 0;
 	text-align: center;
 	-webkit-animation: checkboxEffect 0.3s;
 	animation: checkboxEffect 0.3s;
@@ -1107,19 +1107,19 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 .radio>label:after {
 	width: 9px;
 	height: 9px;
-	padding: 0px;
+	padding: 0;
 	text-align: center;
 }
 
 .checkbox>input[type="checkbox"], .radio>input[type="radio"] {
 	width: 15px;
 	height: 15px;
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .input-group-addon>.checkbox {
 	min-height: 17px;
-	padding-top: 0px;
+	padding-top: 0;
 }
 
 .input-group-addon>.checkbox>label:after {
@@ -1127,8 +1127,8 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 
 th .checkbox, td .checkbox {
-	margin-top: 0px;
-	margin-bottom: 0px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 @keyframes checkboxEffect {
@@ -1161,7 +1161,7 @@ th .checkbox, td .checkbox {
 
 /* ---------- date-time-picker ---------- */
 .bootstrap-datetimepicker-widget .timepicker .table-condensed tr td {
-	padding: 0px;
+	padding: 0;
 }
 
 .bootstrap-datetimepicker-widget .timepicker .table-condensed tr td a {
@@ -1170,12 +1170,12 @@ th .checkbox, td .checkbox {
 
 /* ---------- file-input ---------- */
 .file-input .single-file-preview {
-	padding: 0px;
+	padding: 0;
 	border: none;
 }
 
 .file-input .single-file-preview .file-preview-frame {
-	margin: 0px;
+	margin: 0;
 	box-shadow: none;
 	border-radius: 4px;
 }
@@ -1207,7 +1207,7 @@ th .checkbox, td .checkbox {
 }
 
 .file-input .single-file-preview .file-error-message {
-	margin: 0px 0px 8px 0px;
+	margin: 0 0 8px 0;
 }
 
 .file-input .multiple-file-preview .file-preview-frame {
@@ -1274,8 +1274,8 @@ th .checkbox, td .checkbox {
 
 .spinner.input-group .input-group-addon {
 	min-width: auto;
-	padding-top: 0px;
-	padding-bottom: 0px;
+	padding-top: 0;
+	padding-bottom: 0;
 	background-color: #fefefe;
 }
 
@@ -1301,7 +1301,7 @@ th .checkbox, td .checkbox {
 
 /* ---------- bxslider ---------- */
 .bx-wrapper {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 	box-shadow: none;
 	border: none;
 }
@@ -1316,7 +1316,7 @@ th .checkbox, td .checkbox {
 	font-family: 'iconfont';
 	font-size: 20px;
 	text-align: center;
-	text-indent: 0px;
+	text-indent: 0;
 	-webkit-transition: background-color 0.3s;
 	transition: background-color 0.3s;
 	background-color: rgba(0, 0, 0, 0.1);
@@ -1327,12 +1327,12 @@ th .checkbox, td .checkbox {
 }
 
 .bx-wrapper .bx-prev {
-	left: 0px;
+	left: 0;
 	background: none;
 }
 
 .bx-wrapper .bx-next {
-	right: 0px;
+	right: 0;
 	background: none;
 }
 
@@ -1360,7 +1360,7 @@ th .checkbox, td .checkbox {
 	width: 10px;
 	height: 10px;
 	display: inline-block;
-	margin: 0px 2px;
+	margin: 0 2px;
 	vertical-align: middle;
 	-webkit-animation: scrollloadLoaderEffect 0.8s linear infinite alternate;
 	animation: scrollloadLoaderEffect 0.8s linear infinite alternate;
@@ -1519,10 +1519,10 @@ img.captcha-image {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	z-index: 1000;
 }
 
@@ -1533,7 +1533,7 @@ img.captcha-image {
 
 .rating-container .filled-stars {
 	color: #fdaa01;
-	-webkit-text-stroke: 0px;
+	-webkit-text-stroke: 0;
 	text-shadow: none;
 }
 

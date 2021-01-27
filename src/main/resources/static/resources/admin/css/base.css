@@ -7,7 +7,7 @@
 }
 
 .breadcrumb:hover {
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.08);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
 	border-color: #d8d8d8;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .panel:hover {
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.08);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
 	border-color: #d8d8d8;
 }
 
@@ -40,12 +40,12 @@
 }
 
 .panel .panel-footer .pagination {
-	margin: 0px;
+	margin: 0;
 }
 
 /* ---------- main ---------- */
 main {
-	margin: 55px 0px 0px 230px;
+	margin: 55px 0 0 230px;
 	-webkit-transition: margin 0.5s;
 	transition: margin 0.5s;
 }
@@ -54,9 +54,9 @@ main {
 .main-header {
 	height: 40px;
 	position: fixed;
-	top: 0px;
-	right: 0px;
-	left: 0px;
+	top: 0;
+	right: 0;
+	left: 0;
 	z-index: 100;
 	background-color: #108ee9;
 }
@@ -107,7 +107,7 @@ main {
 .main-header .nav > li > a {
 	height: 40px;
 	line-height: 40px;
-	padding: 0px 15px;
+	padding: 0 15px;
 	color: #ffffff;
 	-webkit-transition: background-color 0.3s;
 	transition: background-color 0.3s;
@@ -122,8 +122,8 @@ main {
 	width: 230px;
 	position: fixed;
 	top: 40px;
-	bottom: 0px;
-	left: 0px;
+	bottom: 0;
+	left: 0;
 	z-index: 100;
 	white-space: nowrap;
 	-webkit-transition: width 0.5s, transform 0.5s;
@@ -152,18 +152,18 @@ main {
 }
 
 .main-sidebar .panel-group {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .main-sidebar .panel-group .panel {
-	margin-top: 0px;
-	border-radius: 0px;
+	margin-top: 0;
+	border-radius: 0;
 	border: none;
 }
 
 .main-sidebar .panel-group .panel .panel-heading {
-	padding: 0px;
-	border-radius: 0px;
+	padding: 0;
+	border-radius: 0;
 }
 
 .main-sidebar .panel-group .panel .panel-heading a {
@@ -199,17 +199,17 @@ main {
 }
 
 .main-sidebar .panel-group .panel .panel-body {
-	padding: 0px;
+	padding: 0;
 	border: none;
 }
 
 .main-sidebar .panel-group .panel .list-group {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .main-sidebar .panel-group .panel .list-group-item {
-	padding: 0px;
-	border-radius: 0px;
+	padding: 0;
+	border-radius: 0;
 	border: none;
 }
 
@@ -239,8 +239,8 @@ main {
 }
 
 .main-sidebar>.list-group .list-group-item {
-	padding: 0px;
-	border-radius: 0px;
+	padding: 0;
+	border-radius: 0;
 	border: none;
 }
 
@@ -309,19 +309,19 @@ main {
 @media(max-width: 767px) {
 
 	.main-sidebar {
-		-webkit-transform: translate(-230px, 0px);
-		-ms-transform: translate(-230px, 0px);
-		transform: translate(-230px, 0px);
+		-webkit-transform: translate(-230px, 0);
+		-ms-transform: translate(-230px, 0);
+		transform: translate(-230px, 0);
 	}
 
 	main {
-		margin-left: 0px;
+		margin-left: 0;
 	}
 
 	.main-sidebar-expanded .main-sidebar {
-		-webkit-transform: translate(0px, 0px);
-		-ms-transform: translate(0px, 0px);
-		transform: translate(0px, 0px);
+		-webkit-transform: translate(0, 0);
+		-ms-transform: translate(0, 0);
+		transform: translate(0, 0);
 	}
 
 }
@@ -336,8 +336,8 @@ main {
 
 /* ---------- items ---------- */
 .items {
-	padding: 5px 0px;
-	margin: 0px -10px;
+	padding: 5px 0;
+	margin: 0 -10px;
 }
 
 .items dt {
@@ -354,6 +354,6 @@ main {
 	width: 66.66%;
 	float: left;
 	padding: 10px;
-	margin: 0px;
+	margin: 0;
 	color: #666666;
 }

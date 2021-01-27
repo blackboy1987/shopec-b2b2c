@@ -5,7 +5,7 @@
 .friend-link main .panel {
 	padding: 20px;
 	margin-bottom: 15px;
-	border-radius: 0px;
+	border-radius: 0;
 }
 
 .friend-link main .panel li {
@@ -21,11 +21,11 @@
 }
 
 .friend-link main .panel li:nth-child(-n+8) {
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .friend-link main .panel li:nth-child(8n) {
-	margin-right: 0px;
+	margin-right: 0;
 }
 
 .friend-link main .panel li:hover {
@@ -43,7 +43,7 @@
 
 .friend-link main .panel li h5 {
 	line-height: 50px;
-	padding: 0px 10px;
+	padding: 0 10px;
 	font-weight: normal;
 	text-align: center;
 }

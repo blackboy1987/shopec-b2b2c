@@ -8,7 +8,7 @@
 .product-detail header {
 	width: 100%;
 	position: fixed;
-	top: 0px;
+	top: 0;
 	z-index: 100;
 	text-align: center;
 	background-color: #4197e6;
@@ -22,9 +22,9 @@
 
 .product-detail header .nav li a {
 	line-height: 40px;
-	padding: 0px 15px;
+	padding: 0 15px;
 	color: #ffffff;
-	border-radius: 0px;
+	border-radius: 0;
 }
 
 .product-detail header .nav li a:hover {
@@ -36,21 +36,21 @@
 	max-height: 80%;
 	display: none;
 	position: absolute;
-	bottom: 0px;
+	bottom: 0;
 	z-index: 200;
 	-webkit-animation-duration: 0.5s;
 	animation-duration: 0.5s;
 	border-top: solid 1px #dddddd;
-	box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 	background-color: #ffffff;
 }
 
 .product-detail .parameter .parameter-header, .product-detail .specification .specification-header {
 	width: 100%;
 	line-height: 40px;
-	padding: 0px 10px;
+	padding: 0 10px;
 	position: absolute;
-	top: 0px;
+	top: 0;
 	z-index: 200;
 	font-size: 14px;
 }
@@ -89,7 +89,7 @@
 
 .product-detail .parameter .parameter-body-wrapper {
 	top: 40px;
-	bottom: 0px;
+	bottom: 0;
 }
 
 .product-detail .parameter .parameter-body table {
@@ -100,13 +100,13 @@
 
 .product-detail .parameter .parameter-body th {
 	width: 100px;
-	padding: 0px 10px;
+	padding: 0 10px;
 	text-align: right;
 	border: 1px solid #e4e4e4;
 }
 
 .product-detail .parameter .parameter-body td {
-	padding: 0px 10px;
+	padding: 0 10px;
 	border: 1px solid #e4e4e4;
 }
 
@@ -192,13 +192,13 @@
 	line-height: 30px;
 	padding: 10px;
 	position: absolute;
-	bottom: 0px;
+	bottom: 0;
 	z-index: 200;
 }
 
 .product-detail .specification .specification-footer .btn-primary {
 	margin-top: 10px;
-	border-radius: 0px;
+	border-radius: 0;
 }
 
 .product-detail .specification .specification-footer .btn-primary:disabled, .product-detail .specification .specification-footer .btn-primary:disabled:hover {
@@ -218,7 +218,7 @@
 .product-detail .tab-content {
 	width: 100%;
 	position: absolute;
-	top: 0px;
+	top: 0;
 	z-index: 1;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-transform: translateZ(0);
@@ -264,7 +264,7 @@
 }
 
 .product-detail .summary section {
-	padding: 0px 10px;
+	padding: 0 10px;
 }
 
 .product-detail .summary section h4 {
@@ -309,7 +309,7 @@
 }
 
 .product-detail .review, .product-detail .consultation {
-	padding: 0px 10px;
+	padding: 0 10px;
 }
 
 .product-detail .review ul p, .product-detail .consultation ul p {
@@ -319,7 +319,7 @@
 }
 
 .product-detail .review li, .product-detail .consultation li {
-	padding: 10px 0px;
+	padding: 10px 0;
 	border-top: solid 1px #eeeeee;
 }
 
@@ -357,8 +357,8 @@
 	display: none;
 	padding-left: 50px;
 	position: fixed;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	z-index: 200;
 	background-color: rgba(0, 0, 0, 0.5);
 }
@@ -401,7 +401,7 @@
 
 .product-list .filter .filter-body dd {
 	float: left;
-	margin: 0px 10px 10px 0px;
+	margin: 0 10px 10px 0;
 }
 
 .product-list .filter .filter-body dd a {
@@ -425,14 +425,14 @@
 	width: 100%;
 	padding-left: 150px;
 	position: absolute;
-	right: 0px;
-	bottom: 0px;
+	right: 0;
+	bottom: 0;
 	border-top: solid 1px #eeeeee;
 	background-color: #ffffff;
 }
 
 .product-list .filter .filter-footer .btn-primary {
-	border-radius: 0px;
+	border-radius: 0;
 }
 
 .product-list .order {
@@ -465,7 +465,7 @@
 	height: 285px;
 	line-height: 25px;
 	float: left;
-	padding: 10px 10px 0px 10px;
+	padding: 10px 10px 0 10px;
 	border-right: 1px solid #eeeeee;
 	border-bottom: 1px solid #eeeeee;
 }

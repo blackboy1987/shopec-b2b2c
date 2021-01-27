@@ -7,7 +7,7 @@
 	height: 130px;
 	line-height: 25px;
 	float: left;
-	padding: 20px 15px 0px 15px;
+	padding: 20px 15px 0 15px;
 	margin-top: 15px;
 	margin-right: 15px;
 	position: relative;
@@ -18,12 +18,12 @@
 }
 
 .store-favorite .store-favorite-list li:hover {
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.08);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
 	border-color: #dddddd;
 }
 
 .store-favorite .store-favorite-list li:nth-child(-n+4) {
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .store-favorite .store-favorite-list li:nth-child(4n) {
@@ -48,9 +48,9 @@
 .store-favorite .store-favorite-list li .caption {
 	width: 100%;
 	position: absolute;
-	right: 0px;
+	right: 0;
 	bottom: 10px;
-	left: 0px;
+	left: 0;
 }
 
 .store-favorite .store-favorite-list li .caption h5 {
@@ -65,7 +65,7 @@
 	display: none;
 	position: absolute;
 	right: 10px;
-	bottom: 0px;
+	bottom: 0;
 }
 
 .store-favorite .store-favorite-list li:hover .caption .action {

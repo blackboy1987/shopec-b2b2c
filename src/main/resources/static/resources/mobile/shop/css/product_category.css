@@ -6,7 +6,7 @@
 	position: absolute;
 	top: 40px;
 	bottom: 40px;
-	left: 0px;
+	left: 0;
 	z-index: 1;
 	overflow: hidden;
 }
@@ -15,7 +15,7 @@
 	width: 100%;
 	min-height: 100%;
 	position: absolute;
-	top: 0px;
+	top: 0;
 	z-index: 1;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-transform: translateZ(0);
@@ -38,7 +38,7 @@
 }
 
 .product-category .sidebar ul li {
-	margin-top: 0px;
+	margin-top: 0;
 	border-bottom: 1px solid #eeeeee;
 }
 
@@ -47,7 +47,7 @@
 	display: block;
 	padding: 10px 5px;
 	text-align: center;
-	border-radius: 0px;
+	border-radius: 0;
 }
 
 .product-category .sidebar ul li.active a {
@@ -86,7 +86,7 @@
 .product-category .tab-content-wrapper {
 	position: absolute;
 	top: 40px;
-	right: 0px;
+	right: 0;
 	bottom: 50px;
 	left: 100px;
 	z-index: 1;
@@ -96,7 +96,7 @@
 .product-category .tab-content {
 	width: 100%;
 	position: absolute;
-	top: 0px;
+	top: 0;
 	z-index: 1;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-transform: translateZ(0);
@@ -159,7 +159,7 @@
 }
 
 .product-category .detail .detail-body {
-	padding: 0px 10px;
+	padding: 0 10px;
 }
 
 .product-category .detail .detail-body dl {

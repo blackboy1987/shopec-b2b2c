@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shopec>
-	<setting name="siteName" value="SHOPEC商城" />
+	<setting name="siteName" value="bootx源码商城" />
 	<setting name="siteUrl" value="http://localhost:8080" />
 	<setting name="logo" value="/upload/image/logo.png" />
 	<setting name="hotSearch" value="苹果,三星,索尼,华为,魅族,佳能,小米,美的,格力" />

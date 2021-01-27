@@ -9,7 +9,7 @@
 .message .message-item .popover {
 	max-width: 80%;
 	display: block;
-	margin: 0px 5px 10px 5px;
+	margin: 0 5px 10px 5px;
 	position: relative;
 	z-index: auto;
 	word-break: break-all;
@@ -22,5 +22,5 @@
 .message .message-item .status {
 	position: absolute;
 	left: -50px;
-	bottom: 0px;
+	bottom: 0;
 }

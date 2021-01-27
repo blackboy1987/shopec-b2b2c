@@ -106,12 +106,12 @@ public class ApplicationContextMVC implements WebMvcConfigurer {
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/favicon.ico").addResourceLocations("classpath:static/favicon.ico").setCachePeriod(86400);
+		/*registry.addResourceHandler("/favicon.ico").addResourceLocations("classpath:static/favicon.ico").setCachePeriod(86400);
 		registry.addResourceHandler("/robots.txt").addResourceLocations("classpath:static/robots.txt").setCachePeriod(86400);
 		registry.addResourceHandler("/resources/**").addResourceLocations("classpath:static/resources/").setCachePeriod(86400);
 		// 本地测试时要这样配置实际的目录
 		registry.addResourceHandler("/upload/**").addResourceLocations("file:C:/Users/xcb/Desktop/xcb/img/upload/").setCachePeriod(86400);
-		registry.addResourceHandler("/6.0/**").addResourceLocations("file:C:/Users/xcb/Desktop/xcb/img/shopec-b2b2c/6.0/").setCachePeriod(86400);
+		registry.addResourceHandler("/6.0/**").addResourceLocations("file:C:/Users/xcb/Desktop/xcb/img/shopec-b2b2c/6.0/").setCachePeriod(86400);*/
 		
 //		registry.addResourceHandler("/upload/**").addResourceLocations("file:/opt/demo/shopec-img/upload/").setCachePeriod(86400);
 //		registry.addResourceHandler("/6.0/**").addResourceLocations("file:/opt/demo/shopec-img/shopec-b2b2c/6.0/").setCachePeriod(86400);

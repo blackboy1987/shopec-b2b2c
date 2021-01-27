@@ -3,11 +3,11 @@
 
 /* ---------- pay-result ---------- */
 .pay-result .main-header {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .pay-result main {
-	padding: 40px 0px;
+	padding: 40px 0;
 	background-color: #f8f8f8;
 }
 
@@ -17,8 +17,8 @@
 
 .pay-result .panel {
 	width: 700px;
-	padding: 0px 20px;
-	margin: 0px auto;
+	padding: 0 20px;
+	margin: 0 auto;
 	background-color: #ffffff;
 }
 

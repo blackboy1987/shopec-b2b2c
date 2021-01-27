@@ -2,89 +2,89 @@
 
 /* ---------- base ---------- */
 .container {
-	padding-right: 0px;
-	padding-left: 0px;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .container-fluid {
-	padding-right: 0px;
-	padding-left: 0px;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .row {
-	margin-right: 0px;
-	margin-left: 0px;
+	margin-right: 0;
+	margin-left: 0;
 }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-	padding-right: 0px;
-	padding-left: 0px;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .form-horizontal .form-group {
-	margin-right: 0px;
-	margin-left: 0px;
+	margin-right: 0;
+	margin-left: 0;
 }
 
 .form-horizontal .has-feedback .form-control-feedback {
-	right: 0px;
+	right: 0;
 }
 
 .navbar-collapse {
-	padding-right: 0px;
-	padding-left: 0px;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .container-fluid > .navbar-collapse {
-	margin-right: 0px;
-	margin-left: 0px;
+	margin-right: 0;
+	margin-left: 0;
 }
 
 .navbar-brand {
-	padding: 15px 0px;
+	padding: 15px 0;
 }
 
 @media (min-width: 768px) {
 	.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-		margin-left: 0px;
+		margin-left: 0;
 	}
 }
 
 .navbar-toggle {
-	margin-right: 0px;
+	margin-right: 0;
 }
 
 .navbar-nav {
-	margin: 7.5px 0px;
+	margin: 7.5px 0;
 }
 
 .navbar-form {
-	padding: 10px 0px;
-	margin-right: 0px;
-	margin-left: 0px;
+	padding: 10px 0;
+	margin-right: 0;
+	margin-left: 0;
 }
 
 @media (min-width: 768px) {
 	.navbar-text {
-		margin-right: 0px;
-		margin-left: 0px;
+		margin-right: 0;
+		margin-left: 0;
 	}
 }
 
 @media (min-width: 768px) {
 	.navbar-right {
-		margin-right: 0px;
+		margin-right: 0;
 	}
 }
 
 .container .jumbotron, .container-fluid .jumbotron {
-	padding-right: 0px;
-	padding-left: 0px;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 /* ---------- label ---------- */
 .label-primary {
-	background-color: #ff6900;
+	background-color: #ed0014;
 }
 
 /* ---------- bxslider ---------- */
@@ -100,9 +100,9 @@
 /* ---------- header-default ---------- */
 .header-default {
 	line-height: 30px;
-	padding: 5px 0px;
+	padding: 5px 0;
 	text-align: center;
-	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 	border-bottom: solid 1px #dddddd;
 	background-color: #ffffff;
 }
@@ -128,9 +128,9 @@
 
 .header-default .btn-block {
 	line-height: 40px;
-	padding: 0px 15px;
-	margin: -5px 0px;
-	border-radius: 0px;
+	padding: 0 15px;
+	margin: -5px 0;
+	border-radius: 0;
 	border: none;
 }
 
@@ -149,9 +149,9 @@
 /* ---------- footer-default ---------- */
 .footer-default {
 	line-height: 36px;
-	padding: 5px 0px;
+	padding: 5px 0;
 	text-align: center;
-	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 	border-top: solid 1px #dddddd;
 	background-color: #ffffff;
 }
@@ -177,9 +177,9 @@
 
 .footer-default .btn-block {
 	line-height: 46px;
-	padding: 0px 15px;
-	margin: -5px 0px;
-	border-radius: 0px;
+	padding: 0 15px;
+	margin: -5px 0;
+	border-radius: 0;
 	border: none;
 }
 
@@ -198,7 +198,7 @@
 /* ---------- button ---------- */
 .btn-flat {
 	box-shadow: none;
-	border-radius: 0px;
+	border-radius: 0;
 	border: none;
 }
 
@@ -238,7 +238,7 @@
 .panel {
 	margin-bottom: 10px;
 	box-shadow: none;
-	border-radius: 0px;
+	border-radius: 0;
 	border-right: none;
 	border-left: none;
 	border-color: #eeeeee;
@@ -311,7 +311,7 @@
 	outline: none;
 	z-index: 1000;
 	border-radius: 20px;
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 	background-color: rgba(250, 250, 250, 0.8);
 }
 
@@ -327,7 +327,7 @@
 .list-group .list-group-item {
 	border-right: none;
 	border-left: none;
-	border-radius: 0px;
+	border-radius: 0;
 }
 
 .list-group .list-group-item.active, .list-group .list-group-item.active:hover, .list-group .list-group-item.active:focus {
@@ -348,7 +348,7 @@
 
 .spinner.input-group.input-group-sm input {
 	width: 35px;
-	padding: 0px 5px;
+	padding: 0 5px;
 	text-align: center;
 	box-shadow: none;
 }
@@ -364,7 +364,7 @@
 
 .spinner.input-group.input-group-lg input {
 	width: 45px;
-	padding: 0px 5px;
+	padding: 0 5px;
 	text-align: center;
 	box-shadow: none;
 }

@@ -455,14 +455,14 @@
 	<build>
 		<defaultGoal>package</defaultGoal>
 		<plugins>
-			<plugin>  
-			      <groupId>org.apache.maven.plugins</groupId>  
-			      <artifactId>maven-war-plugin</artifactId>  
+			<plugin>
+			      <groupId>org.apache.maven.plugins</groupId>
+			      <artifactId>maven-war-plugin</artifactId>
 			      <configuration>
 			      	  <!--<encoding>UTF-8</encoding>-->
-			          <warSourceExcludes>src/main/resources/**</warSourceExcludes>  
-			          <warName>shopec-b2b2c</warName>  
-			      </configuration>  
+			          <warSourceExcludes>src/main/resources/**</warSourceExcludes>
+			          <warName>shopec-b2b2c</warName>
+			      </configuration>
 			</plugin>
 		</plugins>
 		<resources>

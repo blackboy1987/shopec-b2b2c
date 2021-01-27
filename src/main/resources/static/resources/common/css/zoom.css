@@ -15,7 +15,7 @@ img.zoom-img {
   cursor: pointer;
   cursor: -webkit-zoom-out;
   cursor: -moz-zoom-out;
-  border-radius: 0px;
+  border-radius: 0;
   border: none;
 }
 .zoom-overlay {

@@ -25,8 +25,8 @@
    width:90px;
    height:43px;
    position:absolute;
-   top:0px;
-   left:0px;
+   top:0;
+   left:0;
     * width:100px;
     * height:49px;
 }
@@ -47,8 +47,8 @@
 
 .zoomOverlay{
 	position:absolute;
-	left:0px;
-	top:0px;
+	left:0;
+	top:0;
 	background:#FFF;
 	/*opacity:0.5;*/
 	z-index:5000;
@@ -84,8 +84,8 @@
 	text-align:center;
 	font-size:10px;
   position:absolute;
-  top:0px;
-  left:0px;
+  top:0;
+  left:0;
   z-index:120;
   -moz-opacity:0.6;
   opacity: 0.6;
@@ -99,7 +99,7 @@
 
 }
 .zoomWrapperImage img{
-  border:0px;
+  border:0;
   display:block;
   position:absolute;
   z-index:101;

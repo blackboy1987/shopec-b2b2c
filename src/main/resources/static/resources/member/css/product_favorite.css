@@ -17,12 +17,12 @@
 }
 
 .product-favorite .product-favorite-list li:hover {
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.08);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
 	border-color: #dddddd;
 }
 
 .product-favorite .product-favorite-list li:nth-child(-n+5) {
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .product-favorite .product-favorite-list li:nth-child(5n) {

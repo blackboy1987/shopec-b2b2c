@@ -2,11 +2,11 @@
 
 /* ---------- index ---------- */
 .index .summary .panel-body > .media > .media-left {
-	padding: 0px 50px 0px 10px;
+	padding: 0 50px 0 10px;
 	border-image: -webkit-linear-gradient(top, #fafafa, #f0f0f0, #fafafa) 1;
 	border-image: -moz-linear-gradient(top, #fafafa, #f0f0f0, #fafafa) 1;
 	border-image: linear-gradient(top, #fafafa, #f0f0f0, #fafafa) 1;
-	border-width: 0px 1px 0px 0px;
+	border-width: 0 1px 0 0;
 	border-right: 1px solid #f0f0f0;
 }
 
@@ -51,7 +51,7 @@
 	border-image: -webkit-linear-gradient(top, #fafafa, #f0f0f0, #fafafa) 1;
 	border-image: -moz-linear-gradient(top, #fafafa, #f0f0f0, #fafafa) 1;
 	border-image: linear-gradient(top, #fafafa, #f0f0f0, #fafafa) 1;
-	border-width: 0px 1px 0px 0px;
+	border-width: 0 1px 0 0;
 	border-right: 1px solid #f0f0f0;
 }
 
@@ -70,9 +70,9 @@
 
 .index .product-favorite .thumbnail {
 	line-height: 25px;
-	padding: 20px 20px 0px 20px;
+	padding: 20px 20px 0 20px;
 	position: relative;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .index .product-favorite .thumbnail em {
@@ -89,9 +89,9 @@
 .index .store-favorite .thumbnail {
 	height: 120px;
 	line-height: 25px;
-	padding: 15px 15px 0px 15px;
+	padding: 15px 15px 0 15px;
 	position: relative;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .index .store-favorite .thumbnail em {
@@ -111,7 +111,7 @@
 
 .index .store-favorite .caption {
 	position: absolute;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
+	right: 0;
+	bottom: 0;
+	left: 0;
 }

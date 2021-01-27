@@ -10,7 +10,7 @@
 }
 
 .pay-result .pay-confirm-modal .modal-body {
-	padding: 0px;
+	padding: 0;
 	text-align: center;
 }
 
@@ -35,7 +35,7 @@
 .pay-result .panel .panel-heading {
 	height: 80px;
 	line-height: 80px;
-	padding: 0px;
+	padding: 0;
 	color: #3dbd7d;
 	font-size: 16px;
 	text-align: center;
@@ -54,7 +54,7 @@
 
 .pay-result .panel .panel-body p {
 	line-height: 25px;
-	padding: 30px 0px;
+	padding: 30px 0;
 	margin-bottom: 15px;
 	font-size: 14px;
 	color: #999999;

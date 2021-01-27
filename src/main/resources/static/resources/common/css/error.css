@@ -3,17 +3,17 @@
  
 /* ---------- error ---------- */
 .error .main-header {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
  
 .error main {
-	padding: 100px 0px;
+	padding: 100px 0;
 	background: url(../images/error_background.png) repeat-x;
 }
 
 .error main .media {
 	width: 500px;
-	margin: 0px auto;
+	margin: 0 auto;
 }
 
 .error main .media .media-left .media-object {
@@ -59,11 +59,11 @@ html, body {
 	height: 100%;
 	position: fixed;
 	_position: absolute;
-	top: 0px;
+	top: 0;
 	_top: expression(documentElement.scrollTop);
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	z-index: 900;
 	filter: alpha(opacity=50);
 	opacity: 0.5;
@@ -98,7 +98,7 @@ html, body {
 }
 
 .unsupported-browser p a {
-	margin: 0px 5px;
+	margin: 0 5px;
 	color: #ffffff;
 	text-decoration: underline;
 }

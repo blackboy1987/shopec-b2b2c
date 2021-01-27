@@ -10,7 +10,7 @@
 }
 
 .coupon .coupon-list li:nth-child(-n+3), .coupon-exchange-list li:nth-child(-n+3) {
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .coupon .coupon-list li:nth-child(3n), .coupon-exchange-list li:nth-child(3n) {
@@ -29,12 +29,12 @@
 	border-color: #e8e8e8;
 	-webkit-transform: translateY(-2px);
 	transform: translateY(-2px);
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .coupon .media .media-body {
 	line-height: 30px;
-	padding: 15px 0px 15px 15px;
+	padding: 15px 0 15px 15px;
 }
 
 .coupon .media .media-body h3 {
@@ -62,7 +62,7 @@
 	background: radial-gradient(circle at 50% 50%, #ffffff 0%, #ffffff 50%, transparent 0%);
 	background-repeat: repeat-y;
 	background-size: 8px 8px;
-	background-position: -4px 0px;
+	background-position: -4px 0;
 }
 
 .coupon .media .media-right .coupon-right a {
@@ -93,7 +93,7 @@
 .coupon .coupon-list .media .media-right .coupon-right .circle-sm {
 	width: 42px;
 	height: 42px;
-	margin: 6px 0px 0px 6px;
+	margin: 6px 0 0 6px;
 	border-radius: 50%;
 	border: 2px solid #ffffff;
 }
@@ -101,7 +101,7 @@
 .coupon .coupon-list .media .media-right .coupon-right .status {
 	width: 70px;
 	line-height: 30px;
-	margin: 2px 0px 0px -17px;
+	margin: 2px 0 0 -17px;
 	font-size: 19px;
 	font-weight: bold;
 	border-radius: 4px;

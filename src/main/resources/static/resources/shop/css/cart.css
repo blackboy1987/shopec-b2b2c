@@ -3,11 +3,11 @@
 
 /* ---------- cart-list ---------- */
 .cart-list .main-header {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .cart-list main {
-	padding: 10px 0px;
+	padding: 10px 0;
 	background-color: #f8f8f8
 }
 
@@ -41,9 +41,9 @@
 
 .cart-list table .cart-item-group .media .media-left .product-image strong {
 	position: absolute;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	color: #ffffff;
 	font-weight: normal;
 	text-align: center;
@@ -60,12 +60,12 @@
 }
 
 .cart-list table .cart-item-group .cart-item-group-footer dl:last-child {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .cart-list table .cart-item-group .cart-item-group-footer dl dt {
 	float: left;
-	padding: 0px 5px;
+	padding: 0 5px;
 	margin-right: 10px;
 	margin-left: -50px;
 	color: #ff6900;
@@ -107,11 +107,11 @@
 }
 
 .cart-list .bar .btn-primary {
-	border-radius: 0px;
+	border-radius: 0;
 }
 
 .cart-list .empty {
-	padding: 50px 0px;
+	padding: 50px 0;
 	font-size: 14px;
 	text-align: center;
 }

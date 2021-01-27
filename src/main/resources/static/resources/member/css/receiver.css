@@ -43,12 +43,12 @@
 }
 
 .receiver .receiver-list li:hover {
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.08);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
 	border-color: #dddddd;
 }
 
 .receiver .receiver-list li:nth-child(-n+2) {
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .receiver .receiver-list li:nth-child(3n-1) {

@@ -7,8 +7,8 @@
 	display: none;
 	padding-left: 50px;
 	position: fixed;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	z-index: 200;
 	background-color: rgba(0, 0, 0, 0.5);
 }
@@ -51,7 +51,7 @@
 
 .store-index .store-product-category .store-product-category-body dd {
 	float: left;
-	margin: 0px 10px 10px 0px;
+	margin: 0 10px 10px 0;
 }
 
 .store-index .store-product-category .store-product-category-body dd a {
@@ -75,14 +75,14 @@
 	width: 100%;
 	padding-left: 150px;
 	position: absolute;
-	right: 0px;
-	bottom: 0px;
+	right: 0;
+	bottom: 0;
 	border-top: solid 1px #eeeeee;
 	background-color: #ffffff;
 }
 
 .store-index .store-product-category .store-product-category-footer .btn-primary {
-	border-radius: 0px;
+	border-radius: 0;
 }
 
 .store-index main {
@@ -109,11 +109,11 @@
 }
 
 .store-index .featured-product:last-child {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .store-index .featured-product .featured-product-heading {
-	padding: 10px 0px;
+	padding: 10px 0;
 	text-align: center;
 }
 
@@ -166,7 +166,7 @@
 	height: 200px;
 	line-height: 20px;
 	float: left;
-	padding: 10px 10px 0px 10px;
+	padding: 10px 10px 0 10px;
 	border-right: 1px solid #eeeeee;
 	border-bottom: 1px solid #eeeeee;
 }

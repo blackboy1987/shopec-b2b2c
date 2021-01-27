@@ -148,6 +148,8 @@ public final class XmlUtils {
 			return XML_MAPPER.readTree(xml);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e.getMessage(), e);
+		} catch (IOException e) {
+			throw new RuntimeException(e.getMessage(), e);
 		}
 	}
 

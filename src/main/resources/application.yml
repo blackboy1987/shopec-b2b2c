@@ -41,12 +41,9 @@ spring:
     throw-exception-if-no-handler-found: true
   resources:
     add-mappings: false
-  jpa:
-    hibernate:
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-
-mybatis-plus: 
+  freemarker:
+    suffix: .ftl
+mybatis-plus:
   mapper-locations: mapper/*Dao.xml
   typeAliasesPackage: net.shopec.entity
   typeEnumsPackage: net.shopec.entity
@@ -99,3 +96,4 @@ jwtp:
   exclude-path: /,/admin/**,/business/**,/member/**,/api/social_user,/api/business/login
   ## 单个用户最大token数，默认-1不限制
   max-token: -1
+

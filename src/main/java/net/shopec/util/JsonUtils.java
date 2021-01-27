@@ -136,6 +136,8 @@ public final class JsonUtils {
 			return OBJECT_MAPPER.readTree(json);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e.getMessage(), e);
+		} catch (IOException e) {
+			throw new RuntimeException(e.getMessage(), e);
 		}
 	}
 
@@ -153,6 +155,10 @@ public final class JsonUtils {
 
 		try {
 			OBJECT_MAPPER.writeValue(writer, value);
+		} catch (JsonGenerationException e) {
+			throw new RuntimeException(e.getMessage(), e);
+		} catch (JsonMappingException e) {
+			throw new RuntimeException(e.getMessage(), e);
 		} catch (IOException e) {
 			throw new RuntimeException(e.getMessage(), e);
 		}
